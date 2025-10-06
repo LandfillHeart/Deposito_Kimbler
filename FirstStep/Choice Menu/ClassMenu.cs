@@ -1,4 +1,4 @@
-﻿using FirstStep._06_10_Gelateria_DolceGelo;
+﻿using FirstStep._06_10;
 using FirstStep.Collections_Practice;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;

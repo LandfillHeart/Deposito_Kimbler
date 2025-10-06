@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstStep._06_10_Gelateria_DolceGelo
+namespace FirstStep._06_10
 {
 	internal class GelateriaDolceGelo : IChoiceMenu
 	{

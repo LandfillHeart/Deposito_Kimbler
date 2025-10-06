@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstStep._06_10_Gelateria_DolceGelo
+namespace FirstStep._06_10
 {
 	internal class EsempioStudente : IGenericExercise
 	{
@@ -23,6 +23,9 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 
 			studentOne.PrintInfo();
 			studentTwo.PrintInfo();
+
+			Console.WriteLine(studentOne.Equals(studentTwo));
+			Console.WriteLine(studentTwo.Equals(studentTwo));
 		}
 
 		public class Student
@@ -47,6 +50,17 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 				Console.WriteLine($"Matricola {this.ID}: {this.Name}. Media: {this.Average}");
 			}
 
+			public override bool Equals(object? obj)
+			{
+				if(obj == null) return false;
+
+				if(obj is Student other)
+				{
+					return this.ID == other.ID;
+				}
+				return false;
+			}
+			
 		}
 	}
 }

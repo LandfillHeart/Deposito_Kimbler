@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstStep._06_10_Gelateria_DolceGelo
+namespace FirstStep._06_10
 {
 	internal class PracticeOOP : IChoiceMenu
 	{
@@ -13,7 +13,7 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 
 		public PracticeOOP() 
 		{
-			choiceMenu = new ChoiceMenu(new IGenericExercise[] { new EsempioStudente(), new PropertyAssignment() });
+			choiceMenu = new ChoiceMenu(new IGenericExercise[] { new EsempioStudente(), new PropertyAssignment(), new SumAndMultiply() });
 		}
 
 		public void OptionsMenu()

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstStep._06_10_Gelateria_DolceGelo
+namespace FirstStep._06_10
 {
 	internal class PropertyAssignment : IGenericExercise
 	{
@@ -41,7 +41,7 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 				}
 
 				students[sanitizedInput].PrintInfo();
-
+				Console.WriteLine($"HashCode: {students[sanitizedInput].GetHashCode()}");
 			}
 
 		}
@@ -55,7 +55,17 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 
 			public void PrintInfo()
 			{
-				Console.WriteLine($"Studente {Name} {Surname} nato nell'anno {YearOfBirth}");
+				Console.WriteLine($"Studente {this.ToString()} nato nell'anno {YearOfBirth}");
+			}
+
+			public override string ToString()
+			{
+				return $"{Name} {Surname}";
+			}
+
+			public override int GetHashCode()
+			{
+				return HashCode.Combine(Name, Surname, YearOfBirth);
 			}
 
 		}
