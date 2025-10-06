@@ -9,22 +9,40 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 	internal class PropertyAssignment : IGenericExercise
 	{
 		string IGenericExercise.Name => "Assegnazione proprietà";
-
+		private Student[] students = new Student[2];
+		private int sanitizedInput; 
 		public void Execute()
 		{
-			Student studentOne = new Student();
-			Student studentTwo = new Student();
 
-			studentOne.Name = "Giovanni";
-			studentOne.Surname = "Rossi";
-			studentOne.YearOfBirth = 2003;
+			students[0] = new Student();
+			students[1] = new Student();
 
-			studentTwo.Name = "Roberto";
-			studentTwo.Surname = "Bianchi";
-			studentTwo.YearOfBirth = 2004;
+			students[0].Name = "Giovanni";
+			students[0].Surname = "Rossi";
+			students[0].YearOfBirth = 2003;
 
-			studentOne.PrintInfo();
-			studentTwo.PrintInfo();
+			students[1].Name = "Roberto";
+			students[1].Surname = "Bianchi";
+			students[1].YearOfBirth = 2004;
+
+			for(int i = 0; i < students.Length; i++)
+			{
+				Console.WriteLine($"{i} - {students[i].Name}");
+			}
+
+			while(true)
+			{
+				Console.WriteLine("Scegli quale utente vedere, premere ENTER per chiudere il programma");
+				Program.SanitizeInput(out sanitizedInput, mustBePositive: true);
+				if(sanitizedInput > students.Length)
+				{
+					Console.WriteLine("Indice fuori dal range, riprovare");
+					continue;
+				}
+
+				students[sanitizedInput].PrintInfo();
+
+			}
 
 		}
 
