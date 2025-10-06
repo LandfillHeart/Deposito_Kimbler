@@ -13,15 +13,12 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 		private ChoiceMenu choiceMenu;
 		public IGenericExercise PrintMenu;
 
-
-		private double sanitizedInput;
-
 		public List<IcecreamData> icecreams = new();
 		
 		public GelateriaDolceGelo()
 		{
 			PrintMenu = new PrintIcecreamMenu(this);
-			choiceMenu = new ChoiceMenu( new IGenericExercise[] { PrintMenu, new AddIcecream(this)});
+			choiceMenu = new ChoiceMenu( new IGenericExercise[] { PrintMenu, new AddIcecream(this), new BuyIcecream(this)});
 		}
 
 		public void OptionsMenu()
@@ -50,7 +47,7 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 
 			for(int i = 0; i < owner.icecreams.Count; i++)
 			{
-				Console.WriteLine($"{i+1} - {owner.icecreams[i]}");
+				Console.WriteLine($"{i+1} - {owner.icecreams[i].Name}");
 			}
 		}
 	}
@@ -60,6 +57,8 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 		string IGenericExercise.Name => "Aggiungi Gelato";
 		private GelateriaDolceGelo owner;
 
+		private double sanitizedInput;
+
 		public AddIcecream(GelateriaDolceGelo gelateriaDolceGelo)
 		{
 			this.owner = gelateriaDolceGelo;
@@ -67,13 +66,37 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 
 		public void Execute()
 		{
+			Console.WriteLine("Gelati già nel menù:");
+			owner.PrintMenu.Execute();
 
+			while(true)
+			{
+				Console.WriteLine("Inserisci un nuovo gustso di gelato, o premi ENTER per concludere la creazione di gelati");
+				string? input = Console.ReadLine();
+				if(string.IsNullOrEmpty(input))
+				{
+					return;
+				}
+
+				bool itemExists = false;
+				foreach(IcecreamData data in owner.icecreams)
+				{
+					if(data.Name.ToLower() == input.ToLower())
+					{
+						itemExists = true;
+						Console.WriteLine("Sembra sia presente un gelato con un nome simile, riprova");
+						break;
+					}
+				}
+
+				if (itemExists) continue;
+
+				Console.WriteLine("Inserisci il prezzo del gelato");
+				Program.SanitizeInput(out sanitizedInput, mustBePositive: true);
+				owner.icecreams.Add(new IcecreamData(input, sanitizedInput));
+			}
 		}
 
-		private void Add(string name, double price)
-		{
-
-		}
 
 	}
 
@@ -97,13 +120,17 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 		public void Execute()
 		{
 			order.Clear();
+			owner.PrintMenu.Execute();
+			if(owner.icecreams.Count == 0)
+			{
+				return;
+			}
 			OrderIcecream();
 			PrintTotal();
 		}
 
 		private void OrderIcecream()
 		{
-			owner.PrintMenu.Execute();
 			while (true)
 			{
 				Console.WriteLine("Scegli un gelato, oppure inserisci 0 per finire l'ordine");
@@ -115,7 +142,7 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 					break;
 				}
 
-				if(sanitizedInput > order.Count)
+				if(sanitizedInput > owner.icecreams.Count)
 				{
 					Console.WriteLine("Indice non riconosciuto");
 					continue;
@@ -150,10 +177,10 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 			if (tot >= MIN_DISCOUT_PRICE)
 			{
 				msg = DISCOUNT.ToString();
-				tot -= (DISCOUNT / tot) / 100;
+				tot -= (DISCOUNT * tot) / 100;
 			}
 
-			Console.WriteLine($"L'ordine ha un costo di €{tot} con lo sconto del {msg}%");
+			Console.WriteLine($"L'ordine ha un costo di €{tot.ToString("0.##")} con lo sconto del {msg}%");
 		}
 
 
@@ -174,6 +201,11 @@ namespace FirstStep._06_10_Gelateria_DolceGelo
 	{
 		public string Name;
 		public double Price;
+		public IcecreamData(string name, double price)
+		{
+			Name = name;
+			Price = price;
+		}
 	}
 
 }
