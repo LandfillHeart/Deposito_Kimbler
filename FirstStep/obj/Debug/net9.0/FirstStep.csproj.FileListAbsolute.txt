@@ -1,0 +1,14 @@
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\bin\Debug\net9.0\FirstStep.exe
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\bin\Debug\net9.0\FirstStep.deps.json
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\bin\Debug\net9.0\FirstStep.runtimeconfig.json
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\bin\Debug\net9.0\FirstStep.dll
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\bin\Debug\net9.0\FirstStep.pdb
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\FirstStep.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\FirstStep.AssemblyInfoInputs.cache
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\FirstStep.AssemblyInfo.cs
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\FirstStep.csproj.CoreCompileInputs.cache
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\FirstStep.dll
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\refint\FirstStep.dll
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\FirstStep.pdb
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\FirstStep.genruntimeconfig.cache
+C:\Users\kimbl\Desktop\Corso Formatemp\FirstStep\obj\Debug\net9.0\ref\FirstStep.dll
