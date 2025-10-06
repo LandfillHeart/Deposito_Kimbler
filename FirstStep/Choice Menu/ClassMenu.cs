@@ -1,4 +1,5 @@
-﻿using FirstStep.Collections_Practice;
+﻿using FirstStep._06_10_Gelateria_DolceGelo;
+using FirstStep.Collections_Practice;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;
 using System;
@@ -20,7 +21,7 @@ namespace FirstStep
 
 		public ClassMenu()
 		{
-			categories = new IChoiceMenu[] { new ConditionalsPractice(), new SwitchPractice(), new WhilePractice(), new ForPractice(), new MethodsPracticeMenu(), new CollectionsPracticeMenu(), new MatrixPracticeMenu()};
+			categories = new IChoiceMenu[] { new ConditionalsPractice(), new SwitchPractice(), new WhilePractice(), new ForPractice(), new MethodsPracticeMenu(), new CollectionsPracticeMenu(), new MatrixPracticeMenu(), new GelateriaDolceGelo()};
 
 		}
 
