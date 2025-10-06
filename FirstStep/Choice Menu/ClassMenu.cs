@@ -21,7 +21,7 @@ namespace FirstStep
 
 		public ClassMenu()
 		{
-			categories = new IChoiceMenu[] { new ConditionalsPractice(), new SwitchPractice(), new WhilePractice(), new ForPractice(), new MethodsPracticeMenu(), new CollectionsPracticeMenu(), new MatrixPracticeMenu(), new GelateriaDolceGelo()};
+			categories = new IChoiceMenu[] { new ConditionalsPractice(), new SwitchPractice(), new WhilePractice(), new ForPractice(), new MethodsPracticeMenu(), new CollectionsPracticeMenu(), new MatrixPracticeMenu(), new GelateriaDolceGelo(), new PracticeOOP()};
 
 		}
 

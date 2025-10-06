@@ -7,8 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="06-10 Gelateria DolceGelo\" />
-  </ItemGroup>
-
 </Project>
