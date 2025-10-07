@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstStep._07_10.Es_Garage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace FirstStep._07_10
 
 		public PracticeOverride()
 		{
-			choiceMenu = new ChoiceMenu(new IGenericExercise[] { new OverrideMetodiObj(), new Es_Macchina(), new Es_Videoteca()});
+			choiceMenu = new ChoiceMenu(new IGenericExercise[] { new OverrideMetodiObj(), new Es_Macchina(), new Es_Videoteca(), new Es_VehicleInheritance()});
 		}
 
 		public void OptionsMenu()
