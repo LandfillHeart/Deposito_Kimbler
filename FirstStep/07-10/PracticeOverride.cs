@@ -13,7 +13,7 @@ namespace FirstStep._07_10
 
 		public PracticeOverride()
 		{
-			choiceMenu = new ChoiceMenu(new IGenericExercise[] { new OverrideMetodiObj(), new Es_Macchina()});
+			choiceMenu = new ChoiceMenu(new IGenericExercise[] { new OverrideMetodiObj(), new Es_Macchina(), new Es_Videoteca()});
 		}
 
 		public void OptionsMenu()
