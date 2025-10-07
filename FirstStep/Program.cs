@@ -102,4 +102,19 @@ class Program
 		}
 	}
 
+	public static void SanitizeInput(out string? sanitizedInput)
+	{
+		while (true)
+		{
+			sanitizedInput = Console.ReadLine();
+			if(string.IsNullOrEmpty(sanitizedInput))
+			{
+				Console.WriteLine("Perfavore inserisci un contenuto per la stringa");
+				continue;
+			}
+
+			break;
+		}
+	}
+
 }
