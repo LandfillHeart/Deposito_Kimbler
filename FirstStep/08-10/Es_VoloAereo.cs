@@ -18,13 +18,29 @@ namespace FirstStep._08_10
 
 		public Es_VoloAereo()
 		{
-			flight = new Flight(GetNewID);
-			choiceMenu = new ChoiceMenu(new IGenericExercise[] { new ReserveSeats(this), new RemoveReservations(this)});
+			choiceMenu = new ChoiceMenu(new IGenericExercise[] { new CreateFlight(this), new ReserveSeats(this), new RemoveReservations(this)});
 		}
 
 		public void Execute()
 		{
 			choiceMenu.DisplayMenu();
+		}
+	}
+
+	internal class CreateFlight : IGenericExercise
+	{
+		string IGenericExercise.Name => "Crea nuova prenotazione";
+		private Es_VoloAereo owner;
+		public CreateFlight(Es_VoloAereo owner)
+		{
+			this.owner = owner;
+		}
+
+		public void Execute()
+		{
+			Console.WriteLine("Inserisci la destinazione del volo");
+			Program.SanitizeInput(out string sanitizedString);
+			owner.flight = new Flight(sanitizedString);
 		}
 	}
 
@@ -39,10 +55,16 @@ namespace FirstStep._08_10
 
 		public void Execute() 
 		{
+			if (owner.flight == null)
+			{
+				Console.WriteLine("Sembra che non ci sia un volo attivo");
+				return;
+			}
+
 			Console.WriteLine("Quanti posti vuoi prenotare?");
 			Program.SanitizeInput(out int sanitizedInt, mustBePositive: true);
 
-			if(owner.flight.ReserveSeats(sanitizedInt))
+			if (owner.flight.ReserveSeats(sanitizedInt))
 			{
 				Console.WriteLine("Operazione completata");
 				owner.flight.FlightState();
@@ -66,6 +88,12 @@ namespace FirstStep._08_10
 
 		public void Execute()
 		{
+			if (owner.flight == null)
+			{
+				Console.WriteLine("Sembra che non ci sia un volo attivo");
+				return;
+			}
+
 			Console.WriteLine("Quante prenotazioni vuoi rimuovere?");
 			Program.SanitizeInput(out int sanitizedInt);
 
@@ -84,17 +112,18 @@ namespace FirstStep._08_10
 
 	internal class Flight
 	{
-		const int MAX_SEATS = 150;
+		public int MAX_SEATS => 20;
 		private int occupiedSeats;
 
 		public int FlightID { get; private set; }
-
+		public string Destination { get; set; }
 		public int OccupiedSeats => occupiedSeats;
 		public int AvailableSeats => MAX_SEATS - occupiedSeats;
 
-		public Flight(int flightID)
+		public Flight(string destination)
 		{
-			FlightID = flightID;
+			FlightID = Es_VoloAereo.GetNewID;
+			Destination = destination;
 		}
 
  		public bool ReserveSeats(int seats)
@@ -121,7 +150,7 @@ namespace FirstStep._08_10
 
 		public void FlightState()
 		{
-			Console.WriteLine($"Codice Volo: {FlightID} - Posti Occupati: {OccupiedSeats} - Posti Liberi: {AvailableSeats}");
+			Console.WriteLine($"Codice Volo: {FlightID} - Destinazione: {Destination} - Posti Occupati: {OccupiedSeats} - Posti Liberi: {AvailableSeats}");
 		}
 	}
 }
