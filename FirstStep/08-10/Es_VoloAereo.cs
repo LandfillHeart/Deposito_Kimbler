@@ -14,7 +14,7 @@ namespace FirstStep._08_10
 		private static int availableID = 1;
 		public static int GetNewID => availableID++;
 
-		public Flight flight;
+		public User user;
 
 		public Es_VoloAereo()
 		{
@@ -23,8 +23,35 @@ namespace FirstStep._08_10
 
 		public void Execute()
 		{
+			if (user == null)
+			{
+				Console.WriteLine("Sembri non essere registrato, inserisci il tuo nome");
+				Program.SanitizeInput(out string sanitizedString);
+				user = new User(sanitizedString);
+			} else
+			{
+				Console.WriteLine($"Benvenuto {user.Name}");
+			}
 			choiceMenu.DisplayMenu();
 		}
+	}
+
+	internal class User
+	{
+		public string Name { get; private set; }
+		public Flight flight;
+		public bool HasFlight => flight != null;
+
+		public User(string name)
+		{
+			Name = name;
+		}
+
+		public void SetFlight(Flight reservedFlight)
+		{
+			this.flight = reservedFlight;
+		}
+
 	}
 
 	internal class CreateFlight : IGenericExercise
@@ -40,7 +67,7 @@ namespace FirstStep._08_10
 		{
 			Console.WriteLine("Inserisci la destinazione del volo");
 			Program.SanitizeInput(out string sanitizedString);
-			owner.flight = new Flight(sanitizedString);
+			owner.user.SetFlight(new Flight(sanitizedString));
 		}
 	}
 
@@ -55,7 +82,7 @@ namespace FirstStep._08_10
 
 		public void Execute() 
 		{
-			if (owner.flight == null)
+			if (!owner.user.HasFlight)
 			{
 				Console.WriteLine("Sembra che non ci sia un volo attivo");
 				return;
@@ -64,15 +91,15 @@ namespace FirstStep._08_10
 			Console.WriteLine("Quanti posti vuoi prenotare?");
 			Program.SanitizeInput(out int sanitizedInt, mustBePositive: true);
 
-			if (owner.flight.ReserveSeats(sanitizedInt))
+			if (owner.user.flight.ReserveSeats(sanitizedInt))
 			{
 				Console.WriteLine("Operazione completata");
-				owner.flight.FlightState();
+				owner.user.flight.FlightState();
 				return;
 			}
 
 			Console.WriteLine("Operazione non possibile");
-			owner.flight.FlightState();
+			owner.user.flight.FlightState();
 
 		}	
 	}
@@ -88,7 +115,7 @@ namespace FirstStep._08_10
 
 		public void Execute()
 		{
-			if (owner.flight == null)
+			if (!owner.user.HasFlight)
 			{
 				Console.WriteLine("Sembra che non ci sia un volo attivo");
 				return;
@@ -97,15 +124,15 @@ namespace FirstStep._08_10
 			Console.WriteLine("Quante prenotazioni vuoi rimuovere?");
 			Program.SanitizeInput(out int sanitizedInt);
 
-			if(owner.flight.UndoReservations(sanitizedInt))
+			if(owner.user.flight.UndoReservations(sanitizedInt))
 			{
 				Console.WriteLine("Operazione Completata");
-				owner.flight.FlightState();
+				owner.user.flight.FlightState();
 				return;
 			}
 
 			Console.WriteLine("Operazione non possibile");
-			owner.flight.FlightState();
+			owner.user.flight.FlightState();
 		}
 
 	}
