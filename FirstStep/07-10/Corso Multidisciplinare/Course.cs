@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FirstStep._07_10.Corso_Multidisciplinale
 {
+	// Classe astratta: non possiamo avere corsi generici dove non si studia nulla
 	internal abstract class Course
 	{
 		public string Name;
