@@ -1,6 +1,7 @@
 ﻿using FirstStep._06_10;
 using FirstStep._07_10;
 using FirstStep._08_10;
+using FirstStep._08_10.Esercizio_Soldato;
 using FirstStep.Choice_Menu;
 using FirstStep.Collections_Practice;
 using FirstStep.Methods_Practice;
@@ -25,7 +26,10 @@ namespace FirstStep
 		public ClassMenu()
 		{
 			categories = new IChoiceMenu[] { new ConditionalsPractice(), new SwitchPractice(), new WhilePractice(), new ForPractice(), new MethodsPracticeMenu(), new CollectionsPracticeMenu(), new MatrixPracticeMenu(), new GelateriaDolceGelo(), new PracticeOOP(), new PracticeOverride(),
-				new ExerciseCollection(header: "Esercizi 08 Ottobre", new IGenericExercise[]{ new Es_VoloAereo()})
+				new ExerciseCollection(header: "Esercizi 08 Ottobre", new IGenericExercise[]{
+					new Es_VoloAereo(),
+					new Es_Soldato()
+				}),
 			};
 
 		}
@@ -78,3 +82,4 @@ namespace FirstStep
 		}
 	}
 }
+

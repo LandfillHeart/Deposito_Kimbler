@@ -3,12 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\07-10\\corso multidisciplinare\\courseactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:07-10\\corso multidisciplinare\\courseactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\08-10\\esercizio soldato\\es_soldato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:08-10\\esercizio soldato\\es_soldato.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\08-10\\esercizio soldato\\soldier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:08-10\\esercizio soldato\\soldier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\choice menu\\choicemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:choice menu\\choicemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\08-10\\es_voloaereo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:08-10\\es_voloaereo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\choice menu\\classmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:choice menu\\classmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\firststep.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:firststep.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\choice menu\\exercisecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:choice menu\\exercisecollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\07-10\\practiceoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:07-10\\practiceoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\07-10\\corso multidisciplinare\\es_corsomultidisciplinare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:07-10\\corso multidisciplinare\\es_corsomultidisciplinare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\07-10\\corso multidisciplinare\\courseactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:07-10\\corso multidisciplinare\\courseactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\07-10\\corso multidisciplinare\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\07-10\\overridemetodiobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:07-10\\overridemetodiobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\07-10\\practiceoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:07-10\\practiceoverride.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\07-10\\es_vehicleinheritance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:06-10\\practiceoop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\choice menu\\classmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:choice menu\\classmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\06-10\\esempiostudente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:06-10\\esempiostudente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -61,10 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\06-10\\gelateriadolcegelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:06-10\\gelateriadolcegelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|c:\\users\\kimbl\\desktop\\corso formatemp\\deposito_kimbler\\firststep\\firststep.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8158F668-B975-4252-B06B-D1733DB6F1E2}|FirstStep.csproj|solutionrelative:firststep.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,7 +98,72 @@
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Soldier.cs",
+              "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\08-10\\Esercizio Soldato\\Soldier.cs",
+              "RelativeDocumentMoniker": "08-10\\Esercizio Soldato\\Soldier.cs",
+              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\08-10\\Esercizio Soldato\\Soldier.cs",
+              "RelativeToolTip": "08-10\\Esercizio Soldato\\Soldier.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAIwFUAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T12:41:40.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Es_Soldato.cs",
+              "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\08-10\\Esercizio Soldato\\Es_Soldato.cs",
+              "RelativeDocumentMoniker": "08-10\\Esercizio Soldato\\Es_Soldato.cs",
+              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\08-10\\Esercizio Soldato\\Es_Soldato.cs*",
+              "RelativeToolTip": "08-10\\Esercizio Soldato\\Es_Soldato.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T12:40:32.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExerciseCollection.cs",
+              "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\Choice Menu\\ExerciseCollection.cs",
+              "RelativeDocumentMoniker": "Choice Menu\\ExerciseCollection.cs",
+              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\Choice Menu\\ExerciseCollection.cs",
+              "RelativeToolTip": "Choice Menu\\ExerciseCollection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T08:53:43.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ChoiceMenu.cs",
+              "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\Choice Menu\\ChoiceMenu.cs",
+              "RelativeDocumentMoniker": "Choice Menu\\ChoiceMenu.cs",
+              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\Choice Menu\\ChoiceMenu.cs",
+              "RelativeToolTip": "Choice Menu\\ChoiceMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T08:44:10.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Es_VoloAereo.cs",
+              "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\08-10\\Es_VoloAereo.cs",
+              "RelativeDocumentMoniker": "08-10\\Es_VoloAereo.cs",
+              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\08-10\\Es_VoloAereo.cs",
+              "RelativeToolTip": "08-10\\Es_VoloAereo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T08:35:25.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Course.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Corso Multidisciplinare\\Course.cs",
               "RelativeDocumentMoniker": "07-10\\Corso Multidisciplinare\\Course.cs",
@@ -91,33 +176,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "CourseActions.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Corso Multidisciplinare\\CourseActions.cs",
               "RelativeDocumentMoniker": "07-10\\Corso Multidisciplinare\\CourseActions.cs",
-              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Corso Multidisciplinare\\CourseActions.cs*",
-              "RelativeToolTip": "07-10\\Corso Multidisciplinare\\CourseActions.cs*",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAgwLEAAAAfAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Corso Multidisciplinare\\CourseActions.cs",
+              "RelativeToolTip": "07-10\\Corso Multidisciplinare\\CourseActions.cs",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAqwLIAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-07T15:40:33.113Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "Es_CorsoMultidisciplinare.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Corso Multidisciplinare\\Es_CorsoMultidisciplinare.cs",
               "RelativeDocumentMoniker": "07-10\\Corso Multidisciplinare\\Es_CorsoMultidisciplinare.cs",
               "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Corso Multidisciplinare\\Es_CorsoMultidisciplinare.cs",
               "RelativeToolTip": "07-10\\Corso Multidisciplinare\\Es_CorsoMultidisciplinare.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowA0AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-07T15:05:40.977Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "Es_VehicleInheritance.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Es_VehicleInheritance.cs",
               "RelativeDocumentMoniker": "07-10\\Es_VehicleInheritance.cs",
@@ -129,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "Es_Videoteca.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Es_Videoteca.cs",
               "RelativeDocumentMoniker": "07-10\\Es_Videoteca.cs",
@@ -141,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "Es_Macchina.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\Es_Macchina.cs",
               "RelativeDocumentMoniker": "07-10\\Es_Macchina.cs",
@@ -154,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -166,20 +251,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "PracticeOverride.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\PracticeOverride.cs",
               "RelativeDocumentMoniker": "07-10\\PracticeOverride.cs",
               "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\PracticeOverride.cs",
               "RelativeToolTip": "07-10\\PracticeOverride.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAACyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-07T08:35:20.625Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "OverrideMetodiObj.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\07-10\\OverrideMetodiObj.cs",
               "RelativeDocumentMoniker": "07-10\\OverrideMetodiObj.cs",
@@ -192,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "SumAndMultiply.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\06-10\\SumAndMultiply.cs",
               "RelativeDocumentMoniker": "06-10\\SumAndMultiply.cs",
@@ -204,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "PropertyAssignment.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\06-10\\PropertyAssignment.cs",
               "RelativeDocumentMoniker": "06-10\\PropertyAssignment.cs",
@@ -216,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "PracticeOOP.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\06-10\\PracticeOOP.cs",
               "RelativeDocumentMoniker": "06-10\\PracticeOOP.cs",
@@ -228,19 +313,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "ClassMenu.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\Choice Menu\\ClassMenu.cs",
               "RelativeDocumentMoniker": "Choice Menu\\ClassMenu.cs",
               "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\Choice Menu\\ClassMenu.cs",
               "RelativeToolTip": "Choice Menu\\ClassMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAVAQAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T13:48:53.461Z"
+              "WhenOpened": "2025-10-06T13:48:53.461Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "EsempioStudente.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\06-10\\EsempioStudente.cs",
               "RelativeDocumentMoniker": "06-10\\EsempioStudente.cs",
@@ -252,19 +338,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 5,
               "Title": "FirstStep.csproj",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\FirstStep.csproj",
               "RelativeDocumentMoniker": "FirstStep.csproj",
-              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\FirstStep.csproj",
-              "RelativeToolTip": "FirstStep.csproj",
+              "ToolTip": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\FirstStep.csproj*",
+              "RelativeToolTip": "FirstStep.csproj*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-06T13:19:57.22Z"
+              "WhenOpened": "2025-10-06T13:19:57.22Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "GelateriaDolceGelo.cs",
               "DocumentMoniker": "C:\\Users\\kimbl\\Desktop\\Corso Formatemp\\Deposito_Kimbler\\FirstStep\\06-10\\GelateriaDolceGelo.cs",
               "RelativeDocumentMoniker": "06-10\\GelateriaDolceGelo.cs",
