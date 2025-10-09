@@ -3,6 +3,7 @@ using FirstStep._07_10;
 using FirstStep._08_10;
 using FirstStep._08_10.Esercizio_Officina;
 using FirstStep._08_10.Esercizio_Soldato;
+using FirstStep._09_10.Esercizio_Operatore;
 using FirstStep.Choice_Menu;
 using FirstStep.Collections_Practice;
 using FirstStep.Methods_Practice;
@@ -30,8 +31,11 @@ namespace FirstStep
 				new ExerciseCollection(header: "Esercizi 08 Ottobre", new IGenericExercise[]{
 					new Es_VoloAereo(),
 					new Es_Soldato(),
-					new Es_Officina()
+					new Es_Officina(),
 				}),
+				new ExerciseCollection(header: "Esercizi 09 Ottobre", new IGenericExercise[]{
+					new Es_Operatore()
+				})
 			};
 
 		}
