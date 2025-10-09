@@ -34,8 +34,8 @@ namespace FirstStep._09_10.Esercizio_Operatore
 			get => shift;
 			set
 			{
-				if ("giorno".Contains(value.ToLower())) { shift = "Giorno"; return; }
 				if ("notte".Contains(value.ToLower())) { shift = "Notte"; return; }
+				if ("giorno".Contains(value.ToLower())) { shift = "Giorno"; return; }
 
 				if(string.IsNullOrEmpty(shift))
 				{
