@@ -111,7 +111,7 @@ namespace FirstStep._09_10.Esercizio_Operatore
 			{
 				if (op.Type != type) continue;
 				Console.WriteLine($"{op.Name}:");
-				op.DoJob();
+				Es_Operatore.DoOperatorJob(op);
 			}
 		}
 	}

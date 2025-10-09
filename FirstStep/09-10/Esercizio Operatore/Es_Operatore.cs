@@ -41,7 +41,7 @@ namespace FirstStep._09_10.Esercizio_Operatore
 			return operators;
 		}
 
-		public void DoOperatorJob(Operator op)
+		public static void DoOperatorJob(Operator op)
 		{
 			op.DoJob();
 		}
