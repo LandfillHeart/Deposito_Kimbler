@@ -16,6 +16,11 @@ class Program
 
 	}
 
+	/// <summary>
+	/// Chiede all'utente un valore in loop, finché non inserisce un numero reale (float)
+	/// </summary>
+	/// <param name="sanitizedInput">Risultato, assicurato di essere un float</param>
+	/// <param name="mustBePositive">Opzionale, forza l'inserimento di un numero positivo. Default false</param>
 	public static void SanitizeInput(out float sanitizedInput, bool mustBePositive = false)
 	{
 		while (true)
@@ -43,6 +48,11 @@ class Program
 		}
 	}
 
+	/// <summary>
+	/// Chiede all'utente un valore in loop, finché non riceve un numero intero (int)
+	/// </summary>
+	/// <param name="sanitizedInput">Risultato, assicurato di essere un int</param>
+	/// <param name="mustBePositive">Opzionale, forza l'inserimento di un numero positivo. Default false</param>
 	public static void SanitizeInput(out int sanitizedInput, bool mustBePositive = false)
 	{
 		while (true)
@@ -70,6 +80,11 @@ class Program
 		}
 	}
 
+	/// <summary>
+	/// Chiede all'utente un valore in loop, finché non inserisce un numero reale con il PUNTO(double)
+	/// </summary>
+	/// <param name="sanitizedInput">Risultato, assicurato di essere un double</param>
+	/// <param name="mustBePositive">Opzionale, forza l'inserimento di un numero positivo. Default false</param>
 	public static void SanitizeInput(out double sanitizedInput, bool mustBePositive = false)
 	{
 		while (true)
@@ -102,6 +117,10 @@ class Program
 		}
 	}
 
+	/// <summary>
+	/// Chiede in loop una stringa all'utente, finché non inserisce una stringa non vuota (solo enter)
+	/// </summary>
+	/// <param name="sanitizedInput">La stringa, assicurata di non essere NullOrEmpty</param>
 	public static void SanitizeInput(out string? sanitizedInput)
 	{
 		while (true)
