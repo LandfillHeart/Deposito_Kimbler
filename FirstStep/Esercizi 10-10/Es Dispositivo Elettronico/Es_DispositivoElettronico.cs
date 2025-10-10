@@ -20,6 +20,7 @@ namespace FirstStep.Esercizi_10_10.Es_Dispositivo_Elettronico
 			choiceMenu = new ChoiceMenu(new IGenericExercise[]{
 				new AddDevice(DeviceType.Computer, this),
 				new AddDevice(DeviceType.Printer, this),
+				new InteractAllDevices(this)
 			});
 		}
 
@@ -34,8 +35,10 @@ namespace FirstStep.Esercizi_10_10.Es_Dispositivo_Elettronico
 		}
 
 		public void Interact(ElectricalDevice device) 
-		{ 
-			
+		{
+			device.ShowInfo();
+			device.TurnOn();
+			device.TurnOff();
 		}
 	}
 }

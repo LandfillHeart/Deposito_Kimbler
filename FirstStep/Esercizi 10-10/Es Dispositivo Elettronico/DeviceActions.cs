@@ -45,14 +45,17 @@ namespace FirstStep.Esercizi_10_10.Es_Dispositivo_Elettronico
 
 		private Es_DispositivoElettronico owner;
 
-		public InteractAllDevices()
+		public InteractAllDevices(Es_DispositivoElettronico owner)
 		{
-
+			this.owner = owner;	
 		}
 
 		public void Execute()
 		{
-
+			foreach (var device in owner.Devices)
+			{
+				owner.Interact(device);
+			}
 		}
 	}
 
