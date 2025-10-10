@@ -10,11 +10,28 @@ namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 	{
 		string IGenericExercise.Name => "Esercizio Ente Formativo";
 
-		private List<Course> availableCourses = new();
+		private List<Course> availableCourses = new(){
+			new InPersonCourse("Ceramica Bella", 10, "Aula Magna", 15),
+			new OnlineCourse("Business Medievale", 360, "Microsoft Teams", "teams.meeting/1134.com")
+		};
 
 		public void Execute()
 		{
+			foreach (var course in availableCourses) 
+			{
+				PrintDetails(course);
+				DeliverCourse(course);
+			}
+		}
 
+		public void DeliverCourse(Course course)
+		{
+			course.DeliverCourse();
+		}
+
+		public void PrintDetails(Course course)
+		{
+			course.PrintDetails();
 		}
 	}
 }
