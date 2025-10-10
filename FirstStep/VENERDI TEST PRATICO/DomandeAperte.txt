@@ -1,0 +1,95 @@
+# Cos'è e cosa fa l'incapsulamento, fai degli esempi pratici
+
+L'incapsulamento è uno dei principi fondamentali della OOP.
+Definisce che gli oggetti hanno la possibilità di nascondere il proprio funzionamento interno, e di mostrare al resto del codice solo ciò che è strettamente necessario.
+
+Noi applichiamo l'incapsulamento principalmente con le parole chiave:
+Private, Protected, Public
+
+Inoltre utiliziamo metodi chiamati Getter e Setter, che ci permettono di definire il modo in cui accediamo e modifichiamo i nostri attributi
+
+Esempio:
+
+private float credito;
+public float Credito 
+	get => credito
+	set => 
+		if(value < 0f) return;
+		credito = value;
+
+In questo caso, l'attributo credito è privato visto che vogliamo definire un comportamento specifico con il quale cambiare il suo valore.
+Nel nostro programma non possiamo permettere un credito negativo, perciò usiamo il Setter per controllare che non si stia inserendo un valore "illegale"
+
+Il Getter invece, essendo una funzione con un valore di ritorno, può essere usato per variabili computate
+
+Esempio:
+
+const int LIMITE_DEBITO = 100
+private int debito;
+public int DebitoDisponibile => LIMITE_DEBITO - debito;
+
+In questo caso, abbiamo una proprietà DebitoDisponibile che ha solo il Getter, e ogni volta che vogliamo leggere da essa viene eseguita l'operazione LIMITE_DEBITO - debito e restituito il risultato
+Non abbiamo aggiunto un setter visto che non vogliamo dare la possibilità ad un cliente (ovvero un utente o un altro programmatore) di cambiare il suo debito disponibile
+
+# Cos'è e cosa fa l'ereditarietà, fai degli esempi pratici
+
+L'ereditarietà è uno dei principi fondamentali della OOP.
+
+Permette di creare una gerarchia di classi con un rapporto "Inherits From" 
+(attenzione: il rapporto non è "Is A", quello dipende dal programmatore e non può essere forzato dal compilatore, come sappiamo dal principio di Liskov)
+
+In C# questa è una gerarchia ad albero, dove ogni figlio ha un solo padre, visto che ogni classe può ereditare direttamente da solo una classe (altri linguaggi permettono l'ereditarietà multipla)
+
+L'ereditarietà ci permette di riutilizzare il codice esposto in una classe padre (o superclasse) nelle classi figlie (o sottoclassi)
+
+Possiamo in aggiunta sovrascrivere il funzionamento della superclasse tramite parole chiave come override (polimorfismo)
+
+Esempio:
+
+class Animale
+	protected string specie;
+
+	public string GetSpecie() 
+		return specie;
+
+	public void FaiVerso() 
+		Print("L'animale fa un verso");
+
+class Cane : Animale
+	public override void FaiVerso() 
+		Print("Il cane abbaia");
+
+In questo caso, noi abbiamo accesso alla proprietà specie e al metodo GetSpecie(), e non dobbiamo riscriverli nella classe Cane per usarli (riducendo la ridondanza)
+
+Allo stesso tempo, visto che abbiamo bisogno che il Cane fa un verso specifico, possiamo sovrascrivere il metodo FaiVerso()
+Questo è un concetto principalmente del polimorfismo, ma è utile per far capire come le sottoclassi possono utilizzare o non i metodi delle superclassi
+
+# Cos'è e cosa fa il polimorfismo, fai degli esempi pratici
+
+Il polimorfismo è uno dei principi fondamentali della OOP.
+
+Provvede l'intercambiabilità tra i tipi.
+Ci permette di trattare un oggetto di una sottoclasse come se fosse un istanza della superclasse.
+
+Questo ci permette di avere del codice molto più generico, dove possiamo usare "presumere" di star lavorando su una superclasse, mentre il funzionamento reale del programma dipende dalle sottoclassi istanziate.
+Questo è polimorfismo Run-Time, dove all'esecuzione la macchina decide quali metodi utilizzare in base all'oggetto.
+
+Esempio:
+
+class Animale
+	public void GetAnimale()
+		Print("Sono un Animale");
+
+class Cane : Animale
+	public override void GetAnimale()
+		Print("Sono un Cane");
+
+class Gatto : Animale
+	public override void GetAnimale()
+		Print("Sono un Gatto");
+
+void GestisciAnimale(Animale a)
+	a.GetAnimale();
+
+GestisciAnimale(new Cane);
+GestisciAnimale(new Gatto);
