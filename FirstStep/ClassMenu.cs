@@ -7,6 +7,7 @@ using FirstStep._09_10.Esercizio_Operatore;
 using FirstStep.Choice_Menu;
 using FirstStep.Collections_Practice;
 using FirstStep.Esercizi_10_10.Es_Dispositivo_Elettronico;
+using FirstStep.Esercizi_10_10.Es_Pagamento;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;
 using System;
@@ -39,6 +40,7 @@ namespace FirstStep
 				}),
 				new ExerciseCollection(header: "Esercizi 10 Ottobre", new IGenericExercise[]				{
 					new Es_DispositivoElettronico(),
+					new Es_Pagamento()
 				})
 			};
 
