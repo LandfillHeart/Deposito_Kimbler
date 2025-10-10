@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 {
+	public enum CourseType
+	{
+		Undefined = 0,
+		InPerson,
+		Online
+	}
+
 	public abstract class Course
 	{
 		private string title;
@@ -20,6 +27,8 @@ namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 				lengthHours = Math.Max(value, 1);
 			}
 		}
+
+		public virtual CourseType Type => CourseType.Undefined;
 
 		public abstract void DeliverCourse();
 		public abstract void PrintDetails();
@@ -50,6 +59,8 @@ namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 			}
 		}
 
+		public override CourseType Type => CourseType.InPerson;
+
 		public InPersonCourse(string title, int legthHours, string classroom, int maxSeats) : base(title, legthHours)
 		{
 			this.classroom = classroom;
@@ -77,6 +88,8 @@ namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 	{
 		private string platform;
 		private string link;
+
+		public override CourseType Type => CourseType.Online;
 
 		public OnlineCourse(string title, int legthHours, string platform, string link) : base(title, legthHours)
 		{

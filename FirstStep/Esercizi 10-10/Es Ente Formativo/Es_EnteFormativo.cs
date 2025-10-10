@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 {
-	internal class Es_EnteFormativo : IGenericExercise
+	public class Es_EnteFormativo : IGenericExercise
 	{
 		string IGenericExercise.Name => "Esercizio Ente Formativo";
+		private ChoiceMenu choiceMenu;
 
 		private List<Course> availableCourses = new(){
 			new InPersonCourse("Ceramica Bella", 10, "Aula Magna", 15),
 			new OnlineCourse("Business Medievale", 360, "Microsoft Teams", "teams.meeting/1134.com")
 		};
+
+		public Es_EnteFormativo()
+		{
+			choiceMenu = new ChoiceMenu(new IGenericExercise[] {
+				new AddCourse(this),
+			});
+		}
 
 		public void Execute()
 		{
