@@ -19,17 +19,14 @@ namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 		public Es_EnteFormativo()
 		{
 			choiceMenu = new ChoiceMenu(new IGenericExercise[] {
-				new AddCourse(this),
+				new AddCourse(CourseType.InPerson, this),
+				new AddCourse(CourseType.Online, this),
 			});
 		}
 
 		public void Execute()
 		{
-			foreach (var course in availableCourses) 
-			{
-				PrintDetails(course);
-				DeliverCourse(course);
-			}
+			choiceMenu.DisplayMenu();
 		}
 
 		public void DeliverCourse(Course course)
@@ -40,6 +37,11 @@ namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 		public void PrintDetails(Course course)
 		{
 			course.PrintDetails();
+		}
+
+		public void AddCourse(Course course)
+		{
+			availableCourses.Add(course);
 		}
 	}
 }

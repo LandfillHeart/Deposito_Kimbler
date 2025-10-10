@@ -30,8 +30,30 @@ namespace FirstStep.Esercizi_10_10.Es_Ente_Formativo
 		public void Execute()
 		{
 			Console.WriteLine("Inserisci il nome del corso");
+			Program.SanitizeInput(out string title);
 
+			Console.WriteLine("Inserisci la durata in ore intere");
+			Program.SanitizeInput(out int hours, mustBePositive: true);
+
+			switch (type)
+			{
+				case CourseType.InPerson:
+					Console.WriteLine("Inserisci il nome dell'aula dove si svolge il corso");
+					Program.SanitizeInput(out string classroom);
+					Console.WriteLine("Inserisci il numero di posti disponibili");
+					Program.SanitizeInput(out int seats);
+					InPersonCourse inPerson = new InPersonCourse(title, hours, classroom, seats);
+					owner.AddCourse(inPerson);
+					break;
+				case CourseType.Online:
+					Console.WriteLine("Inserisci la piattaforma dove si svolge il corso");
+					Program.SanitizeInput(out string platform);
+					Console.WriteLine("Inserisci il link per seguire il corso");
+					Program.SanitizeInput(out string link);
+					OnlineCourse remote = new OnlineCourse(title, hours, platform, link);
+					owner.AddCourse(remote);
+					break;
+			}
 		}
-
 	}
 }
