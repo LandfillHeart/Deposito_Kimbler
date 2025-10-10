@@ -93,3 +93,39 @@ void GestisciAnimale(Animale a)
 
 GestisciAnimale(new Cane);
 GestisciAnimale(new Gatto);
+
+In questo esempio, la nostra funzione GestisciAnimale "presume" di star lavorando su un oggetto di tipo Animale, ma grazie al polimorfismo possiamo sostituire il parametro con oggetti di sottoclasse di Animale.
+La macchina poi, vedendo che le sottoclassi hanno OVERRIDE di GetAnimale() utilizzerà quei metodi. Se non ci fosse stato l'override, invece la macchina sarebbe risalita in ogni superclasse finché non trova un metodo override oppure il metodo originale in Animale.
+
+Esiste pure il polimorfismo Compile-Time.
+Questo avviene tramite l'OVERLOAD.
+
+Possiamo definire molteplici metodi con lo stesso nome, ma con parametri e return diversi (firma), e in base a quali parametri usiamo la macchina riconosce il metodo giusto.
+Questo avviene prima della esecuzione, ovvero durante la compilazione.
+
+Esempio:
+
+public int Somma(int a, int b)
+	return a + b;
+
+public int Somma(int a, int b, int c)
+	return a + b + c;
+
+public float Somma(float a, float b)
+	return a + b;
+
+Somma(1, 2);
+Somma(1, 2, 3);
+Somma(1.5f, 2.3f);
+
+In questo caso possiamo avere vari metodi con lo stesso nome, e la scelta di quale metodo utilizzare avviene alla compilazione, esaminando i parametri inseriti.
+
+# Cos'è la DevOPS e quali sono le sue fasi principali?
+
+La DevOps è la disciplina che unisce le operazioni aziendali con lo sviluppo del software.
+Permette al reparto di programmazione di collaborare bene tra i suoi membri, e con gli altri reparti dell'azienda.
+
+Le sue fasi principali sono: lo sviluppo, il monitoraggio, la distribuzione.
+
+I suoi vari aspetti come il version control e il testing ci assicura che tutti i programmatori lavorino sulla stessa versione e rispettino requisiti tecnici.
+Inoltre permette di seguire i requisiti per essere disponibile a quanti più utenti, sia per requisiti tecnici che legali.
