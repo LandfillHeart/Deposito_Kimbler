@@ -13,10 +13,11 @@ namespace FirstStep.Esercizi_10_10.Es_Pagamento
 		Cash,
 		Paypal
 	}
-	internal interface IPayment
+	public interface IPayment
 	{
 		public abstract PaymentType Type { get; }
 		public void ExecutePayment(double amount);
+		public bool ExecutePayment(User user, double amount);
 		public void ShowMethod();
 	}
 
@@ -35,10 +36,24 @@ namespace FirstStep.Esercizi_10_10.Es_Pagamento
 			Console.WriteLine($"Pagamento di €{amount} con carta (Circuito: {circuit})");
 		}
 
+		public bool ExecutePayment(User user, double amount)
+		{
+			if(user.Credit < amount)
+			{
+				Console.WriteLine("Credito insufficente");
+				return false;
+			}
+
+			ExecutePayment(amount);
+			return true;
+		}
+
 		public void ShowMethod()
 		{
 			Console.WriteLine("Metodo: Carta di credito");
 		}
+
+
 	}
 
 	public class CashPayment : IPayment
@@ -48,6 +63,18 @@ namespace FirstStep.Esercizi_10_10.Es_Pagamento
 		public void ExecutePayment(double amount)
 		{
 			Console.WriteLine($"Pagamento di €{amount} in contanti");
+		}
+
+		public bool ExecutePayment(User user, double amount)
+		{
+			if (user.Credit < amount)
+			{
+				Console.WriteLine("Credito insufficente");
+				return false;
+			}
+
+			ExecutePayment(amount);
+			return true;
 		}
 
 		public void ShowMethod()
@@ -69,6 +96,18 @@ namespace FirstStep.Esercizi_10_10.Es_Pagamento
 		public void ExecutePayment(double amount)
 		{
 			Console.WriteLine($"Pagamento €{amount} tramite PayPal da: {email}");
+		}
+
+		public bool ExecutePayment(User user, double amount)
+		{
+			if (user.Credit < amount)
+			{
+				Console.WriteLine("Credito insufficente");
+				return false;
+			}
+
+			ExecutePayment(amount);
+			return true;
 		}
 
 		public void ShowMethod()
