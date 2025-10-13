@@ -57,11 +57,12 @@ namespace FirstStep.Esercizi_13_10_Design_Pattern.Es_Singleton
 				return instance;
 			}
 		}
-
 		// if a user is logged in, they are present in this set
 		// once they act, their session is invalid and they must be removed from this set
 		// to act again, they must login
 		private HashSet<User> validUserSessions = new HashSet<User>();
+
+		private UserManager() { }
 
 		public void LogIn(User user, int password)
 		{
