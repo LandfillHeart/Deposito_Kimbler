@@ -31,7 +31,7 @@ namespace FirstStep
 
 		public ClassMenu()
 		{
-			categories = 
+			categories =
 				new IChoiceMenu[] { 
 				// classi commentate per ridurre dimensione del menu iniziale
 				// considerata l'architettura con interfaccia IGenericExercise, questi esercizi sono ancora accessibili tramite ChoiceMenu, ma ora è preferibile usare ExerciseCollection come oggetto generico, piuttosto di creare una classe unica per ogni collezione
@@ -51,6 +51,7 @@ namespace FirstStep
 				}),
 				new ExerciseCollection(header: "Esercizi 13 Ottobre - Design Pattern", new IGenericExercise[] {
 					new Es_LogSingleton(),
+					new Es_LogHistory()
 				}),
 			};
 
