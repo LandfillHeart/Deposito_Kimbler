@@ -9,6 +9,7 @@ using FirstStep.Collections_Practice;
 using FirstStep.Esercizi_10_10.Es_Dispositivo_Elettronico;
 using FirstStep.Esercizi_10_10.Es_Ente_Formativo;
 using FirstStep.Esercizi_10_10.Es_Pagamento;
+using FirstStep.Esercizi_13_10_Design_Pattern.Es_Singleton;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;
 using System;
@@ -30,7 +31,11 @@ namespace FirstStep
 
 		public ClassMenu()
 		{
-			categories = new IChoiceMenu[] { new ConditionalsPractice(), new SwitchPractice(), new WhilePractice(), new ForPractice(), new MethodsPracticeMenu(), new CollectionsPracticeMenu(), new MatrixPracticeMenu(), new GelateriaDolceGelo(), new PracticeOOP(), new PracticeOverride(),
+			categories = 
+				new IChoiceMenu[] { 
+				// classi commentate per ridurre dimensione del menu iniziale
+				// considerata l'architettura con interfaccia IGenericExercise, questi esercizi sono ancora accessibili tramite ChoiceMenu, ma ora è preferibile usare ExerciseCollection come oggetto generico, piuttosto di creare una classe unica per ogni collezione
+				// new ConditionalsPractice(), new SwitchPractice(), new WhilePractice(), new ForPractice(), new MethodsPracticeMenu(), new CollectionsPracticeMenu(), new MatrixPracticeMenu(), new GelateriaDolceGelo(), new PracticeOOP(), new PracticeOverride(),
 				new ExerciseCollection(header: "Esercizi 08 Ottobre", new IGenericExercise[]{
 					new Es_VoloAereo(),
 					new Es_Soldato(),
@@ -43,7 +48,10 @@ namespace FirstStep
 					new Es_DispositivoElettronico(),
 					new Es_Pagamento(),
 					new Es_EnteFormativo(),
-				})
+				}),
+				new ExerciseCollection(header: "Esercizi 13 Ottobre - Design Pattern", new IGenericExercise[] {
+					new Es_LogSingleton(),
+				}),
 			};
 
 		}
