@@ -10,6 +10,7 @@ using FirstStep.Esercizi_10_10.Es_Dispositivo_Elettronico;
 using FirstStep.Esercizi_10_10.Es_Ente_Formativo;
 using FirstStep.Esercizi_10_10.Es_Pagamento;
 using FirstStep.Esercizi_13_10_Design_Pattern.Es_Singleton;
+using FirstStep.Esercizi_13_10_Design_Pattern.Es_Singleton.Log_History;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;
 using System;
@@ -50,7 +51,6 @@ namespace FirstStep
 					new Es_EnteFormativo(),
 				}),
 				new ExerciseCollection(header: "Esercizi 13 Ottobre - Design Pattern", new IGenericExercise[] {
-					new Es_LogSingleton(),
 					new Es_LogHistory()
 				}),
 			};
