@@ -13,7 +13,15 @@ namespace FirstStep.Esercizi_14_10.Es_VehicleFactory
 		public void Execute()
 		{
 			VehicleFactory factory = new VehicleFactory();
-			IVehicle newVehicle = factory.CreateVehicle("auto");
+
+			Console.WriteLine("Che veicolo vuoi creare? auto/moto/camion");
+			Program.SanitizeInput(out string sanitizedString);
+			if(!factory.TypeValid(sanitizedString))
+			{
+				Console.WriteLine("Tipo di veicolo non riconosciuto");
+				return;
+			}
+			IVehicle newVehicle = factory.CreateVehicle(sanitizedString.Trim());
 			newVehicle.Start();
 			newVehicle.ShowType();
 		}
