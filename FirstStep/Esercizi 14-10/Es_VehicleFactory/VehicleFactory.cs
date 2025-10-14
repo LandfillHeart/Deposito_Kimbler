@@ -74,7 +74,14 @@ namespace FirstStep.Esercizi_14_10.Es_VehicleFactory
 		}
 	}
 
-	public abstract class VehicleFactory
+	public interface IVehicleFactory
+	{
+		public IVehicle CreateVehicle(string type);
+		public bool TypeValid(string type);
+		public void ShowOptions();
+	}
+
+	public abstract class VehicleFactory : IVehicleFactory
 	{
 		public abstract IVehicle CreateVehicle(string type);
 		public abstract bool TypeValid(string type);

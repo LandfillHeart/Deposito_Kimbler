@@ -12,6 +12,7 @@ using FirstStep.Esercizi_10_10.Es_Pagamento;
 using FirstStep.Esercizi_13_10_Design_Pattern.Es_Singleton;
 
 using FirstStep.Esercizi_14_10.Es_ConfigManager;
+using FirstStep.Esercizi_14_10.Es_DrawShape;
 using FirstStep.Esercizi_14_10.Es_VehicleFactory;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;
@@ -58,7 +59,8 @@ namespace FirstStep
 				}),
 				new ExerciseCollection(header: "Esercizi 14 Ottobre - Design Pattern", new IGenericExercise[] {
 					new Es_ConfigurazioneSistema(),
-					new Es_VehicleFactory()
+					new Es_VehicleFactory(),
+					new Es_DrawShape()
 				}),
 			};
 
