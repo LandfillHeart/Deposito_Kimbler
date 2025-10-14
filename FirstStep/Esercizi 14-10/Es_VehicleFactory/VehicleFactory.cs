@@ -54,9 +54,46 @@ namespace FirstStep.Esercizi_14_10.Es_VehicleFactory
 		}
 	}
 
-	public class VehicleFactory
+	public class Boat : Vehicle
 	{
-		public IVehicle CreateVehicle(string type)
+		public override string Type => "barca";
+
+		public override void Start()
+		{
+			Console.WriteLine("Inizia a pagaiare...");
+		}
+	}
+
+	public class Ship : Vehicle
+	{
+		public override string Type => "nave";
+
+		public override void Start()
+		{
+			Console.WriteLine("La nave si avvia...");
+		}
+	}
+
+	public abstract class VehicleFactory
+	{
+		public abstract IVehicle CreateVehicle(string type);
+		public abstract bool TypeValid(string type);
+		public abstract void ShowOptions();
+		public static VehicleFactory NewFactory(string category)
+		{
+			return category switch
+			{
+				"terra" => new LandVehicleFactory(),
+				"mare" => new WaterVehicleFactory(),
+				_ => new LandVehicleFactory()
+			};
+		}
+
+	}
+
+	public class LandVehicleFactory : VehicleFactory
+	{
+		public override IVehicle CreateVehicle(string type)
 		{
 			IVehicle toReturn = null;
 			switch (type)
@@ -78,9 +115,45 @@ namespace FirstStep.Esercizi_14_10.Es_VehicleFactory
 			return toReturn;
 		}
 
-		public bool TypeValid(string type)
+		public override bool TypeValid(string type)
 		{
 			return ("auto".Contains(type) || "moto".Contains(type) || "camion".Contains(type));
+		}
+
+		public override void ShowOptions()
+		{
+			Console.WriteLine("Veicoli di terra: auto/moto/camion");
+		}
+	}
+
+	public class WaterVehicleFactory : VehicleFactory
+	{
+		public override IVehicle CreateVehicle(string type)
+		{
+			IVehicle toReturn = null;
+			switch (type)
+			{
+				case "nave":
+					toReturn = new Ship();
+					break;
+				case "barca":
+					toReturn = new Boat();
+					break;
+				default:
+					Console.Error.WriteLine("Tipo di veicolo non riconosciuto");
+					break;
+			}
+
+			return toReturn;
+		}
+
+		public override bool TypeValid(string type)
+		{
+			return ("auto".Contains(type) || "moto".Contains(type) || "camion".Contains(type));
+		}
+		public override void ShowOptions()
+		{
+			Console.WriteLine("Veicoli di mare: barca/nave");
 		}
 	}
 }
