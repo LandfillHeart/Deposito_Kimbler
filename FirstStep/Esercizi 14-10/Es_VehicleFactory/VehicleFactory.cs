@@ -15,61 +15,42 @@ namespace FirstStep.Esercizi_14_10.Es_VehicleFactory
 
 	public abstract class Vehicle : IVehicle
 	{
-		public string Type { get; }
+		public abstract string Type { get; }
 
 		public void ShowType()
 		{
-			throw new NotImplementedException();
+			Console.WriteLine($"Tipo del veicolo: {Type}");
 		}
 
-		public void Start()
-		{
-			throw new NotImplementedException();
-		}
+		public abstract void Start();
 	}
 
-	public class Car : IVehicle
+	public class Car : Vehicle
 	{
-		public string Type => "auto";
+		public override string Type => "auto";
 
-		public void Start()
+		public override void Start()
 		{
 			Console.WriteLine("La macchina si avvia...");
 		}
-
-		public void ShowType()
-		{
-			Console.WriteLine($"Tipo del veicolo: {Type}");
-		}
-
 	}
 
-	public class Bike : IVehicle
+	public class Bike : Vehicle
 	{
-		public string Type => "moto";
-		public void Start() 
+		public override string Type => "moto";
+		public override void Start() 
 		{
 			Console.WriteLine("La moto si avvia...");
 		}
-
-		public void ShowType()
-		{
-			Console.WriteLine($"Tipo del veicolo: {Type}");
-		}
 	}
 
-	public class Truck : IVehicle
-	{
-		public string Type => "camion";
+	public class Truck : Vehicle
+	{ 
+		public override string Type => "camion";
 
-		public void Start()
+		public override void Start()
 		{
 			Console.WriteLine("Il camion si avvia... piano piano...");
-		}
-
-		public void ShowType()
-		{
-			Console.WriteLine($"Tipo del veicolo: {Type}");
 		}
 	}
 
