@@ -27,7 +27,7 @@ namespace FirstStep.Esercizi_15_10.Es_User_Manager
 		#region Observer
 		public void NotifyCreation(User newUser)
 		{
-			Console.WriteLine($"Caro Admin, è stato aggiunto un nuovo utente: {newUser.Name}");
+			Console.WriteLine($"Caro Admin, è stato aggiunto un nuovo utente: {newUser.ToString()}");
 		}
 		#endregion
 	}
