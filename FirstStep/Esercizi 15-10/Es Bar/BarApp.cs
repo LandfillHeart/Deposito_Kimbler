@@ -11,16 +11,19 @@ namespace FirstStep.Esercizi_15_10.Es_Bar
 	{
 		public string Name => "Bar - Decorator";
 
+		private IBeverage myCoffe;
+		private IBeverage myTea;
+
 		public void Execute()
 		{
-			IBeverage myCoffe = new Coffee();
+			myCoffe = new Coffee();
 			Console.WriteLine(myCoffe.Description());
 
-			IBeverage myCoffeeWithMilk = new WithMilkDecorator(myCoffe);
-			Console.WriteLine(myCoffeeWithMilk.Description());
+			myCoffe = new WithMilkDecorator(myCoffe);
+			Console.WriteLine(myCoffe.Description());
 
-			IBeverage myCoffeWithChocolate = new WithChoccolateDecorator(myCoffeeWithMilk);
-			Console.WriteLine(myCoffeWithChocolate.Description());
+			myCoffe = new WithChoccolateDecorator(myCoffe);
+			Console.WriteLine(myCoffe.Description());
 		}
 	}
 }
