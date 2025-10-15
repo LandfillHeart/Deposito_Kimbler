@@ -13,6 +13,7 @@ using FirstStep.Esercizi_13_10_Design_Pattern.Es_Singleton;
 using FirstStep.Esercizi_14_10.Es_ConfigManager;
 using FirstStep.Esercizi_15_10.Es_News_Agency;
 using FirstStep.Esercizi_15_10.Es_Observer_Display;
+using FirstStep.Esercizi_15_10.Es_User_Manager;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;
 using System;
@@ -62,7 +63,8 @@ namespace FirstStep
 				new ExerciseCollection(header: "Esercizi 15 Ottobre - Observer", new IGenericExercise[]
 				{
 					new Es_ObserverDisplay(),
-					new NewsAgencyPortal()
+					new NewsAgencyPortal(),
+					new UserCreationApp()
 				})
 			};
 
