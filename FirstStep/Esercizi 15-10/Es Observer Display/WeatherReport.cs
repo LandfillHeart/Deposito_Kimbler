@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace FirstStep.Esercizi_15_10.Es_Observer_Display
 {
-	public class WeatherApp : ISubject
+	public class WeatherReport : ISubject
 	{
 		private readonly HashSet<IObserver> observers = new HashSet<IObserver>();
+
+		public string City { get; private set; }
 
 		private string weatherState;
 		public string WeatherState
@@ -17,8 +19,14 @@ namespace FirstStep.Esercizi_15_10.Es_Observer_Display
 			set
 			{
 				weatherState = value;
-				Notify(weatherState);
+				Notify($"Oggi a {City} è {weatherState}");
 			}
+		}
+
+		public WeatherReport(string city)
+		{
+			this.City = city;
+			weatherState = "Soleggiato"; // default
 		}
 
 		public void Notify(string msg)
@@ -29,12 +37,12 @@ namespace FirstStep.Esercizi_15_10.Es_Observer_Display
 			}
 		}
 
-		public void Subscribe(IObserver observer)
+		public void AddSubscriber(IObserver observer)
 		{
 			observers.Add(observer);
 		}
 
-		public void Unsubscribe(IObserver observer)
+		public void RemoveSubscriber(IObserver observer)
 		{
 			observers.Add(observer);
 		}
