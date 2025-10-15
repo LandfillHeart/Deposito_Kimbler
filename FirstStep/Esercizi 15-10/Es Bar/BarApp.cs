@@ -17,13 +17,14 @@ namespace FirstStep.Esercizi_15_10.Es_Bar
 		public void Execute()
 		{
 			myCoffe = new Coffee();
-			Console.WriteLine(myCoffe.Description());
 
 			myCoffe = new WithMilkDecorator(myCoffe);
-			Console.WriteLine(myCoffe.Description());
+
+			myCoffe = new WithWhippeCreamDecorator(myCoffe);
 
 			myCoffe = new WithChoccolateDecorator(myCoffe);
 			Console.WriteLine(myCoffe.Description());
+			Console.WriteLine($"Totale: €{myCoffe.GetCost()}");
 		}
 	}
 }
