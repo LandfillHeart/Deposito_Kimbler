@@ -11,6 +11,7 @@ using FirstStep.Esercizi_10_10.Es_Ente_Formativo;
 using FirstStep.Esercizi_10_10.Es_Pagamento;
 using FirstStep.Esercizi_13_10_Design_Pattern.Es_Singleton;
 using FirstStep.Esercizi_14_10.Es_ConfigManager;
+using FirstStep.Esercizi_15_10.Es_Bakery;
 using FirstStep.Esercizi_15_10.Es_Bar;
 using FirstStep.Esercizi_15_10.Es_News_Agency;
 using FirstStep.Esercizi_15_10.Es_Observer_Display;
@@ -67,6 +68,7 @@ namespace FirstStep
 					new NewsAgencyPortal(),
 					new UserCreationApp(),
 					new BarApp(),
+					new CakeApp(),
 				})
 			};
 
