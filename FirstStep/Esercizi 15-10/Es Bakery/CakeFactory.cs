@@ -13,7 +13,9 @@ namespace FirstStep.Esercizi_15_10.Es_Bakery
 		{
 			return type switch
 			{
-				CakeType.Chocolate => new ChocolateCake()
+				CakeType.Chocolate => new ChocolateCake(),
+				CakeType.Fruit => new FruitCake(),
+				CakeType.Vanilla => new VanillaCake(),
 			};
 		}
 
@@ -30,7 +32,9 @@ namespace FirstStep.Esercizi_15_10.Es_Bakery
 
 			return decoratorType switch
 			{
-				DecoratorType.WithStrawberries => new WithStrawberries(toDecorate)
+				DecoratorType.WithStrawberries => new WithStrawberries(toDecorate),
+				DecoratorType.WithWhippeCream => new WithWhippedCream(toDecorate),
+				DecoratorType.WithIcing => new WithIcing(toDecorate),
 			};
 		}
 	}
