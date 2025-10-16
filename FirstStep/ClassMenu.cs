@@ -16,6 +16,7 @@ using FirstStep.Esercizi_15_10.Es_Bar;
 using FirstStep.Esercizi_15_10.Es_News_Agency;
 using FirstStep.Esercizi_15_10.Es_Observer_Display;
 using FirstStep.Esercizi_15_10.Es_User_Manager;
+using FirstStep.Esercizi_16_10.Es_Calcolatrice;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;
 using System;
@@ -69,6 +70,10 @@ namespace FirstStep
 					new UserCreationApp(),
 					new BarApp(),
 					new CakeApp(),
+				}),
+				new ExerciseCollection(header: "Esercizi 16 Ottobre - Strategy", new IGenericExercise[]
+				{
+					new CalculatorApp(),
 				})
 			};
 
