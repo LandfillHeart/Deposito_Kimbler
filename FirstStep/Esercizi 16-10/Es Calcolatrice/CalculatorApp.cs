@@ -12,18 +12,19 @@ namespace FirstStep.Esercizi_16_10.Es_Calcolatrice
 
 		public void Execute()
 		{
-			Console.WriteLine("Inserisci il primo numero");
-			Program.SanitizeInput(out int nOne);
-
-			Console.WriteLine("Inserisci il secondo numero");
-			Program.SanitizeInput(out int nTwo);
-
-			Console.WriteLine("Scegli un operatore: + - * /");
-			Program.SanitizeInput(out string inputOperator);
-
-			Calculator myCalc = new Calculator();
-			myCalc.SetStrategy(inputOperator);
-			Console.WriteLine($"{nOne} {inputOperator} {nTwo} = {myCalc.ExecuteOperationStrategy(nOne, nTwo)}");
+			CalculatorUser.Instance.LogIn();
+			while(true)
+			{
+				Console.WriteLine("Vuoi effettuare un operazione? \n0 - No \n1 - Si");
+				Program.SanitizeInput(out int choice);
+				if (choice == 0)
+				{
+					Console.WriteLine("Grazie per aver usato la mia calcolatrice");
+					CalculatorUser.Instance.LogOut();
+					break;
+				}
+				CalculatorUser.Instance.Operate();
+ 			}
 		}
 	}
 }
