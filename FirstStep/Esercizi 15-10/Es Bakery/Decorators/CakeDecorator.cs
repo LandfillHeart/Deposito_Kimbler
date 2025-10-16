@@ -18,6 +18,13 @@ namespace FirstStep.Esercizi_15_10.Es_Bakery.Decorators
 		{
 			this.cakeComponent = cakeComponent;
 			DecoratorsApplied.Add(DecoratorType);
+			if (cakeComponent is CakeDecorator)
+			{
+				foreach (var decoratorApplied in (cakeComponent as CakeDecorator).DecoratorsApplied)
+				{
+					DecoratorsApplied.Add(decoratorApplied);
+				}
+			}
 		}
 
 		public virtual string Description()
