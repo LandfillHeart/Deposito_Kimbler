@@ -80,7 +80,8 @@ namespace FirstStep
 				new ExerciseCollection(header: "Esercizi 17 Ottobre - Dizionari", new IGenericExercise[]
 				{
 					new UserDatabaseApp(),
-					new PhonebookApp()
+					new PhonebookApp(),
+					new WordCounterApp()
 				})
 			};
 
