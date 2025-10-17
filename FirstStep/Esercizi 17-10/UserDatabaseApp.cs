@@ -22,9 +22,10 @@ namespace FirstStep.Esercizi_17_10
 				Console.WriteLine("5 - Log-Out con utente");
 				Console.WriteLine("6 - Visiona Log Utente");
 				Console.WriteLine("7 - Visiona tutti i Log");
+				Console.WriteLine("8 - Elimina Utente");
 				Program.SanitizeInput(out int choice, mustBePositive: true);
 
-				if (choice > 7) { Console.WriteLine("Commando non riconosciuto"); break; }
+				if (choice > 8) { Console.WriteLine("Commando non riconosciuto"); break; }
 
 				switch (choice) 
 				{
@@ -51,6 +52,9 @@ namespace FirstStep.Esercizi_17_10
 						break;
 					case 7:
 						ViewAllLogs();
+						break;
+					case 8:
+						DeleteUser();
 						break;
 				}
 			}
@@ -108,7 +112,8 @@ namespace FirstStep.Esercizi_17_10
 		{
 			foreach(User user in UserManager.Instance.GetAllUsers())
 			{
-				foreach(ActionLog log in UserManager.Instance.ViewLogsByUser(user.ID))
+				Console.WriteLine($"Log dell'utente: {user.Name}");
+				foreach (ActionLog log in UserManager.Instance.ViewLogsByUser(user.ID))
 				{
 					PrintLog(log);
 				}
@@ -119,5 +124,12 @@ namespace FirstStep.Esercizi_17_10
 		{
 			Console.WriteLine($"{toPrint.TimeStamp} - {toPrint.MetaData}");
 		}
+
+		private void DeleteUser()
+		{
+			Console.WriteLine("Inserisci l'id dell'utente da eliminare");
+			Program.SanitizeInput(out int id);
+			UserManager.Instance.RemoveUser(id);
+		} 
 	}
 }

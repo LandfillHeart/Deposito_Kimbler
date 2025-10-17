@@ -116,6 +116,10 @@ namespace FirstStep.Esercizi_17_10
 
 		public void ViewUser(int ID)
 		{
+			if (!existingUsers.ContainsKey(ID))
+			{
+				Console.WriteLine("Sembra che hai inserito un utente che non esiste!");
+			}
 			Console.WriteLine($"Benvenuto alla pagina di: {existingUsers[ID].Name} email: {existingUsers[ID].Email}");
 			actionsByUsers[ID].Add(CreateNewLog(LogType.View));
 		}
@@ -127,6 +131,10 @@ namespace FirstStep.Esercizi_17_10
 
 		public List<ActionLog> ViewLogsByUser(int ID)
 		{
+			if (!actionsByUsers.ContainsKey(ID))
+			{
+				Console.WriteLine("Sembra che hai inserito un utente che non esiste!");
+			}
 			return actionsByUsers[ID];
 		}
 		#endregion
