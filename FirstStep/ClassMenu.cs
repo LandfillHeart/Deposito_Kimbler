@@ -81,7 +81,8 @@ namespace FirstStep
 				{
 					new UserDatabaseApp(),
 					new PhonebookApp(),
-					new WordCounterApp()
+					new WordCounterApp(),
+					new ProductManagementApp()
 				})
 			};
 
