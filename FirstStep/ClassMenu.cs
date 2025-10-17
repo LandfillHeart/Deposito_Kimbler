@@ -17,6 +17,7 @@ using FirstStep.Esercizi_15_10.Es_News_Agency;
 using FirstStep.Esercizi_15_10.Es_Observer_Display;
 using FirstStep.Esercizi_15_10.Es_User_Manager;
 using FirstStep.Esercizi_16_10.Es_Calcolatrice;
+using FirstStep.Esercizi_17_10;
 using FirstStep.Methods_Practice;
 using FirstStep.While_Practice;
 using System;
@@ -74,6 +75,10 @@ namespace FirstStep
 				new ExerciseCollection(header: "Esercizi 16 Ottobre - Strategy", new IGenericExercise[]
 				{
 					new CalculatorApp(),
+				}),
+				new ExerciseCollection(header: "Esercizi 17 Ottobre - Dizionari", new IGenericExercise[]
+				{
+					new UserDatabaseApp(),
 				})
 			};
 
