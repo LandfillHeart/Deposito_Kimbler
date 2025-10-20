@@ -28,6 +28,8 @@ namespace FirstStep.Esercizi_20_10
 		#endregion
 
 		#region Dictionaries
+		// there desperatly needs to be a way to make this dictionaries READONLY outside of the BankManager context
+		// i dont want another programmer to casually do dictionary.Clear or overwrite data without permission
 		public Dictionary<int, Client> AllClients = new Dictionary<int, Client>();
 		public Dictionary<int, Account> AllAccounts = new Dictionary<int, Account>();
 		public Dictionary<int, List<Operation>> AccountOperations = new Dictionary<int, List<Operation>>();
@@ -43,18 +45,45 @@ namespace FirstStep.Esercizi_20_10
 		#region Account Operations
 		public void MakeDeposit(Account account, float amount)
 		{
-			if(account.Deposit(amount))
+			if(!account.Deposit(amount))
 			{
-				Console.WriteLine("Deposit can't be negative or zero");
+				Console.WriteLine("Deposit amount can't be negative or zero");
 				return;
 			}
+
+			LogOperation(account, OperationType.Deposit, $"User {account.Id} deposited {currency}{amount}");
+			OnDepositMade(account, amount);
 			Console.WriteLine("Operation Completed");
 		}
 
 		public void MakeWithdrawal(Account account, float amount)
 		{
+			if(!account.Withdraw(amount, out string result))
+			{
 
+				Console.WriteLine(result);
+				return;
+			}
+
+			LogOperation(account, OperationType.Withdraw, $"User {account.Id} withdrew {currency}{amount}");
+			Console.WriteLine("Operation Completed");
 		}
+
+		private void LogOperation(Account account, OperationType operationType, string result)
+		{
+			if (!AllAccounts.ContainsKey(account.Id)) 
+			{
+				Console.WriteLine("Errore: L'operazione non è associabile a nessun account. Log annullato.");
+				return;
+			}
+
+			if(!AccountOperations.ContainsKey(account.Id))
+			{
+				AccountOperations.Add(account.Id, new List<Operation>());
+			}
+
+			AccountOperations[account.Id].Add(new Operation(operationType, metaData: result));
+ 		}
 		#endregion
 
 		// strategy - it isn't quite clear to me yet how the pattern is applicable here
@@ -71,6 +100,8 @@ namespace FirstStep.Esercizi_20_10
 
 
 		#region Factory
+		// no reason to have the factory methods anywhere else - we don't want users to create accounts that can't be validated by the server
+		// although this could be its own singleton, to respect the Single Responsability Principle
 		private int nextID = 1;
 		private Account CreateAccount(AccountType type)
 		{
@@ -120,6 +151,21 @@ namespace FirstStep.Esercizi_20_10
 			foreach (IAccountObserver observer in observers)
 			{
 				observer.DepositMade(account, amount);
+			}
+		}
+
+		private void OnWithdrawalMade(Account account, float amount)
+		{
+			foreach (IAccountObserver observer in observers)
+			{
+				observer.WithdrawalMade(account, amount);
+			}
+		}
+		private void OnOperationError(Account account, string errorMessage)
+		{
+			foreach (IAccountObserver observer in observers)
+			{
+				observer.OperationError(account, errorMessage);
 			}
 		}
 		#endregion

@@ -24,15 +24,16 @@ namespace FirstStep.Esercizi_20_10
 			Funds = 0f;
 		}
 
-		public bool Deposit(float amount)
+		public bool Deposit(float amount, out string result)
 		{
 			if (amount <= 0f) 
 			{
-				// Deposit cant be negative or zero
+				result = "Deposit can't be negative or zero";
 				return false;
 			}
 
 			Funds += amount;
+			result = "Deposit Completed";
 			return true;
 		}
 
@@ -58,7 +59,14 @@ namespace FirstStep.Esercizi_20_10
 
 	public struct Operation
 	{
-		
+		public OperationType Type { get; private set; }
+		public string MetaData { get; private set; }
+		public DateTime TimeStamp { get; private set; }
+		public Operation(OperationType type, string metaData)
+		{
+			Type = type;
+			MetaData = metaData;
+		}
 	}
 
 	public enum AccountType

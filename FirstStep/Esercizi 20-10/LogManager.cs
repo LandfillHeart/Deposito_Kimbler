@@ -38,6 +38,17 @@ namespace FirstStep.Esercizi_20_10
 		{
 			Console.WriteLine($"Caro admin, un cliente ha fatto un deposito");
 		}
+
+		public void WithdrawalMade(Account account, float amount)
+		{
+			Console.WriteLine($"Caro admin, un cliente ha fatto un ritiro");
+		}
+
+		public void OperationError(Account account, string error)
+		{
+			Console.WriteLine($"Caro admin, un operazione non è andata a buon fine");
+			Console.WriteLine($"User ID: {account.Id} - Error Message: {error}");
+		}
 		#endregion
 
 
@@ -48,6 +59,8 @@ namespace FirstStep.Esercizi_20_10
 		public void AccountCreated(Account newAccount);
 		public void AccountClosed(Account closedAccount);
 		public void DepositMade(Account account, float amount);
+		public void WithdrawalMade(Account account, float amount);
+		public void OperationError(Account account, string error);
 	}
 
 }
