@@ -24,6 +24,12 @@ namespace FirstStep.Esercizi_20_10
 			Funds = 0f;
 		}
 
+		/// <summary>
+		/// Adds Funds to Account. 
+		/// </summary>
+		/// <param name="amount">The amount to be added to Funds</param>
+		/// <param name="result">Result or Error message</param>
+		/// <returns>Returns false if amount <= 0</returns>
 		public bool Deposit(float amount, out string result)
 		{
 			if (amount <= 0f) 
@@ -37,6 +43,12 @@ namespace FirstStep.Esercizi_20_10
 			return true;
 		}
 
+		/// <summary>
+		/// Removes Funds from Account.
+		/// </summary>
+		/// <param name="amount">The amount to be removed from Funds</param>
+		/// <param name="result">Result of Error message</param>
+		/// <returns>Returns false if amount > funds, or if amount <= 0 </returns>
 		public bool Withdraw(float amount, out string result)
 		{
 			if (amount <= 0f) 
@@ -81,6 +93,7 @@ namespace FirstStep.Esercizi_20_10
 		Withdraw,
 		Deposit,
 		Create,
-		Close
+		Close,
+		Error
 	}
 }

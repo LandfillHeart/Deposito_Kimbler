@@ -45,28 +45,28 @@ namespace FirstStep.Esercizi_20_10
 		#region Account Operations
 		public void MakeDeposit(Account account, float amount)
 		{
-			if(!account.Deposit(amount))
+			if(!account.Deposit(amount, out string result))
 			{
-				Console.WriteLine("Deposit amount can't be negative or zero");
+				LogOperation(account, OperationType.Error, result);
+				OnOperationError(account, errorMessage: result);
 				return;
 			}
 
 			LogOperation(account, OperationType.Deposit, $"User {account.Id} deposited {currency}{amount}");
 			OnDepositMade(account, amount);
-			Console.WriteLine("Operation Completed");
 		}
 
 		public void MakeWithdrawal(Account account, float amount)
 		{
 			if(!account.Withdraw(amount, out string result))
 			{
-
-				Console.WriteLine(result);
+				LogOperation(account, OperationType.Error, result);
+				OnOperationError(account, errorMessage: result);
 				return;
 			}
 
 			LogOperation(account, OperationType.Withdraw, $"User {account.Id} withdrew {currency}{amount}");
-			Console.WriteLine("Operation Completed");
+			OnWithdrawalMade(account, amount);
 		}
 
 		private void LogOperation(Account account, OperationType operationType, string result)
@@ -114,6 +114,7 @@ namespace FirstStep.Esercizi_20_10
 		{
 			Account account = CreateAccount(type);
 			AllAccounts.Add(account.Id, account);
+			LogOperation(account, OperationType.Create, result: "Account succesfully created");
 			OnAccountCreated(account);
 		}
 		#endregion
