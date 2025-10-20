@@ -36,8 +36,41 @@ namespace FirstStep.Esercizi_20_10
 		#region Context
 		#endregion
 
+		#region Account Operations
+		public void MakeDeposit(Account account, float amount)
+		{
+			if(account.Deposit(amount))
+			{
+				Console.WriteLine("Deposit can't be negative or zero");
+				return;
+			}
+			Console.WriteLine("Operation Completed");
+		}
+
+		public void MakeWithdrawal(Account account, float amount)
+		{
+
+		}
+		#endregion
+
 		// strategy - hidden to program
-		// factory - visible to program
+		#region Strategy
+		private void GetCommission(Account account, )
+		{
+
+		}
+		#endregion
+
+
+		#region Factory
+		private int nextID = 1;
+		private Account CreateAccount(AccountType type)
+		{
+			// assign value to newID, then immediately increase by 1
+			int newID = nextID++;
+			return new Account(newID, type);
+		}
+		#endregion
 
 		#region Observers
 		private HashSet<IAccountObserver> observers = new HashSet<IAccountObserver>();
