@@ -26,7 +26,7 @@ namespace FirstStep.Esercizi_20_10
 
 		public void AccountCreated(Account newAccount)
 		{
-			Console.WriteLine($"Caro admin, è stato creato un nuovo conto - ID: ");
+			Console.WriteLine($"Caro admin, è stato creato un nuovo conto - ID: {newAccount.Id}");
 		}
 
 		public void AccountClosed(Account closedAccount)
@@ -54,6 +54,7 @@ namespace FirstStep.Esercizi_20_10
 
 	}
 
+	// in future, interface segregation principle could and probably should be applied
 	public interface IAccountObserver
 	{
 		public void AccountCreated(Account newAccount);

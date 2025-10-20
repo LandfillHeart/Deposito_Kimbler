@@ -45,7 +45,17 @@ namespace FirstStep.Esercizi_20_10
 		#region Account Operations
 		public void MakeDeposit(Account account, float amount)
 		{
-			if(!account.Deposit(amount, out string result))
+			commissionContext.GetCommission(account, OperationType.Deposit, amount, out float commission);
+			// we take a small amount from their deposit to pay for the commission
+			amount -= commission;
+			if (amount <= 0f)
+			{
+				string error = "L'importo inserito risulta non superare la commissione per deposito, operazione annullata";
+				LogOperation(account, OperationType.Error, error);
+				OnOperationError(account, error);
+			}
+
+			if (!account.Deposit(amount, out string result))
 			{
 				LogOperation(account, OperationType.Error, result);
 				OnOperationError(account, errorMessage: result);
@@ -58,7 +68,8 @@ namespace FirstStep.Esercizi_20_10
 
 		public void MakeWithdrawal(Account account, float amount)
 		{
-			if(!account.Withdraw(amount, out string result))
+			commissionContext.GetCommission(account, OperationType.Withdraw, amount, out float commission);
+			if (!account.Withdraw(amount + commission, out string result))
 			{
 				LogOperation(account, OperationType.Error, result);
 				OnOperationError(account, errorMessage: result);
@@ -92,14 +103,11 @@ namespace FirstStep.Esercizi_20_10
 		// in this istance, it's not quite a "strategy" as much as a switch statement
 		// if there was a clearer scope for the project (how different contexts change the strategy drastically) then it'd be easy to understand how it's useful, and implementing the strategy interface would make sense for extension
 		#region Strategy
-		private void GetCommission(Account account, Operation operation)
-		{
-
-		}
+		private CommissionContext commissionContext = new CommissionContext();
 		#endregion
 
 
-		#region Factory
+		#region Factory / CRUD
 		// no reason to have the factory methods anywhere else - we don't want users to create accounts that can't be validated by the server
 		// although this could be its own singleton, to respect the Single Responsability Principle
 		private int nextID = 1;
@@ -110,12 +118,49 @@ namespace FirstStep.Esercizi_20_10
 			return new Account(newID, type);
 		}
 
-		public void AddAccount(AccountType type)
+		/// <summary>
+		/// Creates a new account if the user pays the creation commission
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="accountDeposit"></param>
+		/// <param name="accountID">The ID of the account, if successful</param>
+		/// <returns>Returns true if the funds meet the requirements for creating the account</returns>
+		public bool AddAccount(AccountType type, float accountDeposit, out int accountID)
 		{
+			commissionContext.GetCommission(type, OperationType.Create, out float commission);
+			accountID = -1;
+
+			if(accountDeposit < commission)
+			{
+				Console.WriteLine($"Cannot create account, cost of account creation not met");
+				Console.WriteLine($"Cost of creating {type} account: {commission}. Deposit made: {accountDeposit}");
+				Console.WriteLine("Your deposit will be returned");
+				// no reason to log this - there is no account to be associated
+				return false;
+			}
+
 			Account account = CreateAccount(type);
 			AllAccounts.Add(account.Id, account);
+			Console.WriteLine(AllAccounts[account.Id]);
 			LogOperation(account, OperationType.Create, result: "Account succesfully created");
 			OnAccountCreated(account);
+			accountID = account.Id;
+			return true;
+		}
+
+		public void RemoveAccoubt(int accountID)
+		{
+			if(!AllAccounts.ContainsKey(accountID))
+			{
+				Console.WriteLine($"Cannot delete account, it can't be found!");
+				return;
+			}
+
+			float existingFunds = AllAccounts[accountID].Funds;
+			Console.WriteLine($"Account Chiuso. Ti saranno resituiti i tuoi fondi: {currency}{existingFunds}");
+			LogOperation(AllAccounts[accountID], OperationType.Close, "Account Chiuso da Utente");
+			OnAccountClosed(AllAccounts[accountID]);
+			AllAccounts.Remove(accountID);
 		}
 		#endregion
 

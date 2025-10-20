@@ -65,10 +65,16 @@ namespace FirstStep.Esercizi_20_10
 	public class DepositCommission : ITransferCommissionStrategy
 	{
 		private float flatCommission = 1f;
+		private float commissionTreshold = 10f;
 		public float GetCommission(Account account, float amount)
 		{
 			// if account is standard / premium / student... do something
-			return flatCommission;
+			float commission = 0f;
+			if(amount > commissionTreshold)
+			{
+				commission = flatCommission;
+			}
+			return commission;
 		}
 	}
 
