@@ -1,114 +1,17 @@
-﻿public class Program
-{
-	public static void Main(string[] args)
-	{
-		IBank[] allBanksInTheWorld = new IBank[] { new AllianzBank(), new SanpaoloBank()};
-		IPaymentGateway[] allPaymentGatewaysInTheWorld = new IPaymentGateway[] { new PayPallGateway(), new StripeGateway() };
-		Random rng = new Random();
-		IBank userBank = allBanksInTheWorld[rng.Next(0, allBanksInTheWorld.Length)];
-		IPaymentGateway userGateway = allPaymentGatewaysInTheWorld[rng.Next(0, allPaymentGatewaysInTheWorld.Length)];
-		PaymentProcessor myProcessor = new PaymentProcessor(userGateway, userBank);
-		myProcessor.ProcessPayment();
+﻿using SoftwareArchitecture.Esercizi_20_10;
 
+namespace SoftwareArchitecture
+{
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			// in entrambi i casi stiamo facendo riferimento allo stesso singleton, ma nel secondo abbiamo la possibilità di sovrascrivere config se necessario
+			OrderService firstOrderService = new OrderService(new LoggerService(), new List<string>() { "Ordine #12 in arrivo domani!", "Ordine #98 Annullato", "Ordine #77 in arrivo tra 3 giorni" });
+			OrderService secondOrderService = new OrderService(new LoggerService(OrderAppContext.Instance), new List<string>() { "Ordine #8 annullato!", "Ordine #11 in arrivo tra 6 giorni"});
+
+			firstOrderService.GetOrderStatus();
+			secondOrderService.GetOrderStatus();
+		}
 	}
 }
-
-#region GreetingService
-public class GreetingService
-{
-	private IGreeter myGreeter;
-	public GreetingService(IGreeter greeter)
-	{
-		myGreeter = greeter;
-		greeter.Greet();
-	}
-}
-
-public interface IGreeter
-{
-	public IGreetable ToGreet { get; }
-	public void Greet();
-}
-
-public class ConsoleGreeter : IGreeter
-{
-	public IGreetable ToGreet { get; private set; }
-	public void Greet()
-	{
-		Console.WriteLine($"Ciao, {ToGreet.Name}!");
-	}
-	public ConsoleGreeter(IGreetable toGreet)
-	{
-		ToGreet = toGreet;
-	}
-}
-
-public interface IGreetable
-{
-	public string Name { get; }
-}
-
-public class User : IGreetable
-{
-	public string Name { get; private set; }
-	public User(string name)
-	{
-		Name = name;
-	}
-}
-#endregion
-
-#region PaymentProcessor
-public class PaymentProcessor
-{
-	private IPaymentGateway gateway;
-	private IBank bank;
-	public PaymentProcessor(IPaymentGateway gateway, IBank bank)
-	{
-		this.gateway = gateway;
-		this.bank = bank;
-	}
-
-	public void ProcessPayment()
-	{
-		Console.WriteLine($"Pagamento effettuato tramite {gateway.GetGateway()} verso {bank.Name}");
-	}
-}
-
-public interface IPaymentGateway
-{
-	public string GetGateway();
-}
-
-public class PayPallGateway : IPaymentGateway
-{
-	public string GetGateway()
-	{
-		return "Paypall";
-	}
-}
-public class StripeGateway : IPaymentGateway
-{
-	public string GetGateway()
-	{
-		return "Stripe";
-	}
-}
-
-public interface IBank
-{
-	public string Name { get; }
-}
-
-public class SanpaoloBank : IBank
-{
-	public string Name => "Sanpaolo";
-}
-
-public class AllianzBank : IBank 
-{
-	public string Name => "Allianz";
-}
-
-
-#endregion
