@@ -2,16 +2,9 @@
 {
 	public static void Main(string[] args)
 	{
-		Console.WriteLine("Scegli un processore del pagamento: \n 0 - PayPall \n 1 - Stripe");
-		int choice = int.Parse(Console.ReadLine());
-		if (choice == 0)
-		{
-			new PaymentProcessor(new PayPallGateway());
-		}
-		else 
-		{
-			new PaymentProcessor(new StripeGateway());
-		}
+		IGreetable toGreet = new User("Ray");
+		IGreeter messagePrinter = new ConsoleGreeter(toGreet);
+		GreetingService myService = new GreetingService(messagePrinter);
 	}
 }
 
@@ -28,14 +21,34 @@ public class GreetingService
 
 public interface IGreeter
 {
+	public IGreetable ToGreet { get; }
 	public void Greet();
 }
 
 public class ConsoleGreeter : IGreeter
 {
+	public IGreetable ToGreet { get; private set; }
 	public void Greet()
 	{
-		Console.WriteLine("Hello, World!");
+		Console.WriteLine($"Ciao, {ToGreet.Name}!");
+	}
+	public ConsoleGreeter(IGreetable toGreet)
+	{
+		ToGreet = toGreet;
+	}
+}
+
+public interface IGreetable
+{
+	public string Name { get; }
+}
+
+public class User : IGreetable
+{
+	public string Name { get; private set; }
+	public User(string name)
+	{
+		Name = name;
 	}
 }
 #endregion
