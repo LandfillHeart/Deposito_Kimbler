@@ -2,9 +2,14 @@
 {
 	public static void Main(string[] args)
 	{
-		IGreetable toGreet = new User("Ray");
-		IGreeter messagePrinter = new ConsoleGreeter(toGreet);
-		GreetingService myService = new GreetingService(messagePrinter);
+		IBank[] allBanksInTheWorld = new IBank[] { new AllianzBank(), new SanpaoloBank()};
+		IPaymentGateway[] allPaymentGatewaysInTheWorld = new IPaymentGateway[] { new PayPallGateway(), new StripeGateway() };
+		Random rng = new Random();
+		IBank userBank = allBanksInTheWorld[rng.Next(0, allBanksInTheWorld.Length)];
+		IPaymentGateway userGateway = allPaymentGatewaysInTheWorld[rng.Next(0, allPaymentGatewaysInTheWorld.Length)];
+		PaymentProcessor myProcessor = new PaymentProcessor(userGateway, userBank);
+		myProcessor.ProcessPayment();
+
 	}
 }
 
@@ -57,31 +62,53 @@ public class User : IGreetable
 public class PaymentProcessor
 {
 	private IPaymentGateway gateway;
-	public PaymentProcessor(IPaymentGateway gateway)
+	private IBank bank;
+	public PaymentProcessor(IPaymentGateway gateway, IBank bank)
 	{
 		this.gateway = gateway;
-		gateway.DisplayGateway();
+		this.bank = bank;
+	}
+
+	public void ProcessPayment()
+	{
+		Console.WriteLine($"Pagamento effettuato tramite {gateway.GetGateway()} verso {bank.Name}");
 	}
 }
 
 public interface IPaymentGateway
 {
-	public void DisplayGateway();
+	public string GetGateway();
 }
 
 public class PayPallGateway : IPaymentGateway
 {
-	public void DisplayGateway()
+	public string GetGateway()
 	{
-		Console.WriteLine("Hai scelto PayPall");
+		return "Paypall";
 	}
 }
 public class StripeGateway : IPaymentGateway
 {
-	public void DisplayGateway()
+	public string GetGateway()
 	{
-		Console.WriteLine("Hai scelto Stripe");
+		return "Stripe";
 	}
 }
+
+public interface IBank
+{
+	public string Name { get; }
+}
+
+public class SanpaoloBank : IBank
+{
+	public string Name => "Sanpaolo";
+}
+
+public class AllianzBank : IBank 
+{
+	public string Name => "Allianz";
+}
+
 
 #endregion
