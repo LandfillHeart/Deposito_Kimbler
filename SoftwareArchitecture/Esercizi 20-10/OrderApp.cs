@@ -92,4 +92,29 @@ namespace SoftwareArchitecture.Esercizi_20_10
 			}
 		}
 	}
+
+	#region Decorator 
+	public abstract class ContextDecorator : IAppConfig
+	{
+		protected IAppConfig configComponent;
+		public virtual string AppName => configComponent.AppName;
+
+		public virtual string Currency => configComponent.Currency;
+
+		public virtual float Tax => configComponent.Tax;
+
+		public ContextDecorator(IAppConfig configComponent)
+		{
+			this.configComponent = configComponent;
+		}
+	}
+
+	public class BetaContext : ContextDecorator
+	{
+		public override string AppName => $"{base.AppName} Versione Beta";
+		public BetaContext(IAppConfig configComponent) : base(configComponent)
+		{
+		}
+	}
+	#endregion
 }
