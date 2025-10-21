@@ -1,5 +1,6 @@
 ﻿using SoftwareArchitecture.Esercizi_21_10.Esercizi_Semplici;
 using SoftwareArchitecture.Esercizi_21_10.Esercizi_Semplici.AlertService;
+using SoftwareArchitecture.Esercizi_21_10.Notification_System;
 
 namespace SoftwareArchitecture
 {
@@ -9,7 +10,7 @@ namespace SoftwareArchitecture
 		{
 			// in entrambi i casi stiamo facendo riferimento allo stesso singleton, ma nel secondo abbiamo la possibilità di sovrascrivere config se necessario
 
-			new WeekdaysApp().Run();
+			new MessangerApp().Run();
 		}
 	}
 
