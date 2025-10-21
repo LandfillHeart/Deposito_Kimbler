@@ -1,6 +1,4 @@
-﻿using SoftwareArchitecture.Esercizi_20_10;
-using SoftwareArchitecture.Esercizi_21_10;
-using ILogger = SoftwareArchitecture.Esercizi_21_10.ILogger;
+﻿using SoftwareArchitecture.Esercizi_21_10.Esercizi_Semplici.AlertService;
 
 namespace SoftwareArchitecture
 {
@@ -10,8 +8,7 @@ namespace SoftwareArchitecture
 		{
 			// in entrambi i casi stiamo facendo riferimento allo stesso singleton, ma nel secondo abbiamo la possibilità di sovrascrivere config se necessario
 			
-			FileUploaderApp myApp = new FileUploaderApp();
-			myApp.Run();
+			new AlertServiceApp().Run();
 		}
 	}
 
