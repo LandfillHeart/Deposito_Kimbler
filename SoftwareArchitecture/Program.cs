@@ -1,6 +1,4 @@
-﻿using SoftwareArchitecture.Esercizi_21_10.Esercizi_Semplici;
-using SoftwareArchitecture.Esercizi_21_10.Esercizi_Semplici.AlertService;
-using SoftwareArchitecture.Esercizi_21_10.Notification_System;
+﻿using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation;
 
 namespace SoftwareArchitecture
 {
@@ -9,9 +7,9 @@ namespace SoftwareArchitecture
 		
 		public static void Main(string[] args)
 		{
-			// in entrambi i casi stiamo facendo riferimento allo stesso singleton, ma nel secondo abbiamo la possibilità di sovrascrivere config se necessario
-
-			new MessangerApp().Run();
+			ConsoleUI.Instance.StartSession();
+			ConsoleUI.Instance.CreateProduct();
+			ConsoleUI.Instance.ReadProduct();
 		}
 	}
 

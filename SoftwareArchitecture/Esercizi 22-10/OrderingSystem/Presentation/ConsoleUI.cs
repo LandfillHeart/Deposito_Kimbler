@@ -1,9 +1,5 @@
 ﻿using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Domain.Entities;
 
 namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 {
@@ -27,8 +23,10 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 		#endregion
 
 		#region Dependency Injection
-
+		// TODO: Replace ApplicationService.Instance with a DI of a generic interface
 		#endregion
+
+		private List<Actions> actions = new();
 
 		public void StartSession()
 		{
@@ -37,42 +35,47 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 			if ("admin".Contains(choice))
 			{
 				ApplicationService.Instance.InitializePriviliges(AccessLevel.Admin);
+				goto LogSession;
 				return;
 			}
 
 			if ("user".Contains(choice))
 			{
 				ApplicationService.Instance.InitializePriviliges(AccessLevel.Default);
+				goto LogSession;
 				return;
 			}
 
 			ApplicationService.Instance.InitializePriviliges(AccessLevel.None);
 
+		LogSession:
+			Console.WriteLine($"Session Start - Your access level: {ApplicationService.Instance.AccessLevel.ToString()}");
+			
 		}
 
-		// once we have developed a service distribution system, then we don't need 2 different menu classes
-		// we only provide services to the ui, which will then display them
-		// in this way, we can add/remove services for different users IN THE BACK-END without needing to update the client application
-		
-		public void AdminMenu()
+		public void CreateProduct()
 		{
-			Console.WriteLine("Pick an option: \n" +
-				"0 - Close Program \n" +
-				"1 - Create Product \n" +
-				"2 - View Product \n" +
-				"3 - Update Product \n" +
-				"4 - Delete Product \n"); 
+			Console.WriteLine("New Product Name: ");
+			string name = Console.ReadLine();
+
+			Console.WriteLine("New Product Price: ");
+			string price = Console.ReadLine();
+
+			ApplicationService.Instance.CreateProduct(name, price, out string message);
+			// TODO: Log message
+			Console.WriteLine(message);
 		}
 
-		public void UserMenu()
+		public void ReadProduct()
 		{
-			Console.WriteLine("Pick an option: \n" +
-				"0 - Close Program \n" +
-				"1 - Add item to order \n" +
-				"2 - Remove item from order \n" +
-				"3 - Complete Order \n" +
-				"4 - Delete Order \n");
+			Console.WriteLine("Find product by ID: ");
+			string ID = Console.ReadLine();
+
+			if(ApplicationService.Instance.ReadProduct(ID, out Product product, out string message))
+			{
+				Console.WriteLine(product.Name);
+			}
+			Console.WriteLine(message);
 		}
-		
 	}
 }

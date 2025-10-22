@@ -1,4 +1,5 @@
-﻿using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Infrastructure;
+﻿using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Domain.Entities;
+using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 		private bool privilegesInitialized;
 
 		private Actions allowedActions;
+		public AccessLevel AccessLevel { get; private set; }
 
 		#region ACCESS SERVICES
 		private CreateProduct createProductService;
@@ -41,6 +43,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 
 		public void InitializePriviliges(AccessLevel level)
 		{
+			AccessLevel = level;
 			switch (level)
 			{
 				case AccessLevel.Default:
@@ -61,6 +64,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 					allowedActions = Actions.None;
 					break;
 			}
+			InitializeServices();
 		}
 
 		private void InitializeServices()
@@ -76,6 +80,41 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 			{
 				readProductService = new ReadProduct(Database.Instance);
 			}
+		}
+		#endregion
+
+		#region Domain Interface - Product
+		public bool CreateProduct(string name, float price, out string message)
+		{
+			if((allowedActions & Actions.CreateProduct) != Actions.CreateProduct)
+			{
+				message = "ERROR: No permissions for creation of products";
+				return false;
+			}
+
+			if(createProductService == null)
+			{
+				message = "ERROR: CreateProduct service not initialized. Re-attempt verification or contact your provider";
+				return false;
+			}
+
+			return createProductService.CreateNewProduct(name, price, out message);
+		}
+
+		public bool CreateProduct(string name, string price, out string message)
+		{
+			if (!float.TryParse(price, out float sanitizedFloat))
+			{
+				message = "ERROR: price is in invalid format";
+				return false;
+			}
+
+			return CreateProduct(name, sanitizedFloat, out message);
+		}
+
+		public bool ReadProduct(string id, out Product product, out string message)
+		{
+			return readProductService.GetProduct(id, out product, out message);
 		}
 		#endregion
 	}

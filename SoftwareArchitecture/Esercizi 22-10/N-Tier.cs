@@ -31,6 +31,7 @@ namespace SoftwareArchitecture.Esercizi_22_10
 		}
 	}
 
+	/*
 	class ConsoleUI
 	{
 		private readonly ProdottoService _svc;
@@ -42,5 +43,5 @@ namespace SoftwareArchitecture.Esercizi_22_10
 			_svc.Crea("Uova");
 		}
 	}
-
+	*/
 }
