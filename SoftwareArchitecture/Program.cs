@@ -6,6 +6,7 @@ namespace SoftwareArchitecture
 {
 	public class Program
 	{
+		
 		public static void Main(string[] args)
 		{
 			// in entrambi i casi stiamo facendo riferimento allo stesso singleton, ma nel secondo abbiamo la possibilità di sovrascrivere config se necessario
