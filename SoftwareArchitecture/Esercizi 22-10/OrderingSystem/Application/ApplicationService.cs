@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,11 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 
 		private Actions allowedActions;
 
+		#region ACCESS SERVICES
+		private CreateProduct createProductService;
+		private ReadProduct readProductService;
+		#endregion
+
 		public void InitializePriviliges(AccessLevel level)
 		{
 			switch (level)
@@ -54,6 +60,21 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 					// if we can't recognize the access of the user, then don't let them do NOTHING!
 					allowedActions = Actions.None;
 					break;
+			}
+		}
+
+		private void InitializeServices()
+		{
+			// PRODUCT
+			// IRepository has to be a param and not hard coded
+			if((allowedActions & Actions.CreateProduct) == Actions.CreateProduct)
+			{
+				createProductService = new CreateProduct(Database.Instance);
+			}
+
+			if((allowedActions & Actions.ReadProduct) == Actions.ReadProduct)
+			{
+				readProductService = new ReadProduct(Database.Instance);
 			}
 		}
 		#endregion
