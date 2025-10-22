@@ -62,4 +62,23 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 			Console.WriteLine(message);
 		}
 	}
+
+	internal class ReadAllProducts : IPresentationAction
+	{
+		public string MenuItemName => "See product catalogue";
+		private ApplicationService applicationService;
+		public ReadAllProducts(ApplicationService applicationService)
+		{
+			this.applicationService = applicationService;
+		}
+
+		public void Run()
+		{
+			List<Product> toDisplay = applicationService.ReadAllProducts();
+			foreach (Product product in toDisplay)
+			{
+				Console.WriteLine($"{product.ID} - {product.Name}");
+			}
+		}
+	}
 }

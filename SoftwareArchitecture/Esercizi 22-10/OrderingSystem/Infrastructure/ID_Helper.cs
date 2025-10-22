@@ -20,7 +20,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Infrastructure
 
 		public static string CreateID(CategoryID category)
 		{
-			return $"{CategoryToTag(category)}_{category + NextID[category]}";
+			return $"{CategoryToTag(category)}_{category + NextID[category]++}";
 		}
 
 		private static string CategoryToTag(CategoryID category)

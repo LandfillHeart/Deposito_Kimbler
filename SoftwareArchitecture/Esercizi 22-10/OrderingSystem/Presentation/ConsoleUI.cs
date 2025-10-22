@@ -62,6 +62,9 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 		private void InitializeActions()
 		{
 			ApplicationService serviceCache = ApplicationService.Instance;
+			// technically here the actions could be dictated by a factory/strategy method, depending on other factors
+			// this could be if our app context is telling us to use test objects, or if we need different users to complete the same actions differently
+			// everything can always be more granular, more complex, more detailed. it's all on a per-need basis
 			if((serviceCache.AllowedActions & Actions.CreateProduct) == Actions.CreateProduct)
 			{
 				actions.Add(new CreateProduct(serviceCache));
@@ -70,6 +73,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 			if ((serviceCache.AllowedActions & Actions.ReadProduct) == Actions.ReadProduct)
 			{
 				actions.Add(new ReadProduct(serviceCache));
+				actions.Add(new ReadAllProducts(serviceCache));
 			}
 		}
 

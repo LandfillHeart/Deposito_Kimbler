@@ -116,6 +116,16 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 		{
 			return readProductService.GetProduct(id, out product, out message);
 		}
+
+		public List<Product> ReadAllProducts()
+		{
+			List<Product> toReturn = new();
+			foreach(string id in Database.Instance.ProductIDs)
+			{
+				toReturn.Add(Database.Instance.ReadProduct(id));
+			}
+			return toReturn;
+		}
 		#endregion
 	}
 }

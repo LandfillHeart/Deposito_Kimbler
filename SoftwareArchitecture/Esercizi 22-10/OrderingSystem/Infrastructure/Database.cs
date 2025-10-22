@@ -2,6 +2,7 @@
 using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Infrastructure
 		private Dictionary<string, Order> orders = new Dictionary<string, Order>();
 		private Dictionary<string, Customer> customers = new Dictionary<string, Customer>();
 
+		public ReadOnlyCollection<string> ProductIDs => products.Keys.ToList().AsReadOnly();
 		// Database has to be as gullible and clueless as possibile
 		// It has to be possible to do whatever kind of destructive mess we want right here
 		// That's because, all logic to make sure something is correct, MUST HAPPEN on the Application layer
