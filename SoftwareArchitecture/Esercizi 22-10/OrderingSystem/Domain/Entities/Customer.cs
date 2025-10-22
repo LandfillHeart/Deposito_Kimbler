@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Domain.Enums;
+using SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,14 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Domain.Entities
 {
 	internal class Customer
 	{
-		public int ID { get; private set; }
+		public string ID { get; private set; }
 		public string Name { get; private set; }
+
+		public Customer(string name) 
+		{
+			Name = name;
+			ID = ID_Helper.CreateID(CategoryID.Customer);
+		}
+
 	}
 }
