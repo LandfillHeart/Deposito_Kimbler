@@ -8,5 +8,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Domain.Entities
 {
 	internal class OrderItem
 	{
+		public Product Product { get; private set; }
+		public int Quantity { get; private set; }
 	}
 }

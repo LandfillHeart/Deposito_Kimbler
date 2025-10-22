@@ -8,5 +8,6 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Domain.Entities
 {
 	internal class Money
 	{
+		public string CurrencySymbol { get; private set; }
 	}
 }
