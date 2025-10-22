@@ -8,8 +8,7 @@ namespace SoftwareArchitecture
 		public static void Main(string[] args)
 		{
 			ConsoleUI.Instance.StartSession();
-			ConsoleUI.Instance.CreateProduct();
-			ConsoleUI.Instance.ReadProduct();
+			ConsoleUI.Instance.InteractiveMenu();
 		}
 	}
 

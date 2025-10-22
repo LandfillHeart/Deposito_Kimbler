@@ -26,7 +26,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 		// TODO: Replace ApplicationService.Instance with a DI of a generic interface
 		#endregion
 
-		private List<Actions> actions = new();
+		private List<IPresentationAction> actions = new List<IPresentationAction>();
 
 		public void StartSession()
 		{
@@ -50,32 +50,66 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 
 		LogSession:
 			Console.WriteLine($"Session Start - Your access level: {ApplicationService.Instance.AccessLevel.ToString()}");
-			
+			InitializeActions();
 		}
 
-		public void CreateProduct()
+		// What I actually would like to do here:
+		// 1 - Have a list of an interface which gives me a generic run menu or whatnot
+		// 2 - Based on access level, populate the list
+		// 3 - Iterate through the list, creating a menu
+		// 4 - When an option is chosen, it runs a func inside the object similar to what we find below
+
+		private void InitializeActions()
 		{
-			Console.WriteLine("New Product Name: ");
-			string name = Console.ReadLine();
-
-			Console.WriteLine("New Product Price: ");
-			string price = Console.ReadLine();
-
-			ApplicationService.Instance.CreateProduct(name, price, out string message);
-			// TODO: Log message
-			Console.WriteLine(message);
-		}
-
-		public void ReadProduct()
-		{
-			Console.WriteLine("Find product by ID: ");
-			string ID = Console.ReadLine();
-
-			if(ApplicationService.Instance.ReadProduct(ID, out Product product, out string message))
+			ApplicationService serviceCache = ApplicationService.Instance;
+			if((serviceCache.AllowedActions & Actions.CreateProduct) == Actions.CreateProduct)
 			{
-				Console.WriteLine(product.Name);
+				actions.Add(new CreateProduct(serviceCache));
 			}
-			Console.WriteLine(message);
+
+			if ((serviceCache.AllowedActions & Actions.ReadProduct) == Actions.ReadProduct)
+			{
+				actions.Add(new ReadProduct(serviceCache));
+			}
+		}
+
+		public void InteractiveMenu()
+		{
+			while (true) 
+			{
+				Console.Clear();
+				Console.WriteLine("Pick an option:");
+				Console.WriteLine("ENTER - Close Program");
+				for (int i = 0; i < actions.Count; i++)
+				{
+					Console.WriteLine($"{i} - {actions[i].MenuItemName}");
+				}
+				string? input = Console.ReadLine();
+				if (string.IsNullOrEmpty(input))
+				{
+					Console.WriteLine("Thank you, goodbye!");
+					Environment.Exit(0);
+				}
+
+				if (!int.TryParse(input, out int index))
+				{
+					Console.WriteLine("Invalid string, press any button to continue");
+					Console.ReadKey(true);
+					continue;
+				}
+
+				if (index >= actions.Count)
+				{
+					Console.WriteLine("Invalid choice, press any button to continue");
+					Console.ReadKey(true);
+					continue;
+				}
+
+				actions[index].Run();
+				// action will exit with return on completion, so capture key to allow user time to read result
+				Console.WriteLine("Press any key to continue");
+				Console.ReadKey(true);
+			}
 		}
 	}
 }
