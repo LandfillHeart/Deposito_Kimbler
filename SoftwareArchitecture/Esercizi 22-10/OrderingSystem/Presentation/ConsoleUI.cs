@@ -75,6 +75,11 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 				actions.Add(new ReadProduct(serviceCache));
 				actions.Add(new ReadAllProducts(serviceCache));
 			}
+
+			if ((serviceCache.AllowedActions & Actions.UpdateProduct) == Actions.UpdateProduct)
+			{
+				actions.Add(new UpdateProduct(serviceCache));
+			}
 		}
 
 		public void InteractiveMenu()

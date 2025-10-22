@@ -57,7 +57,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 
 			if (ApplicationService.Instance.ReadProduct(ID, out Product product, out string message))
 			{
-				Console.WriteLine(product.Name);
+				Console.WriteLine($"{product.Name} - {product.Price}");
 			}
 			Console.WriteLine(message);
 		}
@@ -77,8 +77,33 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Presentation
 			List<Product> toDisplay = applicationService.ReadAllProducts();
 			foreach (Product product in toDisplay)
 			{
-				Console.WriteLine($"{product.ID} - {product.Name}");
+				Console.WriteLine($"{product.ID} - {product.Name} - {product.Price}");
 			}
+		}
+	}
+
+	internal class UpdateProduct : IPresentationAction
+	{
+		public string MenuItemName => "Update a product by ID";
+		private ApplicationService applicationService;
+		public UpdateProduct(ApplicationService applicationService)
+		{
+			this.applicationService = applicationService;
+		}
+
+		public void Run()
+		{
+			Console.WriteLine("Insert product ID: ");
+			string ID = Console.ReadLine();
+
+			Console.WriteLine("Insert new name: ");
+			string newName = Console.ReadLine();
+
+			Console.WriteLine("Insert new price: ");
+			string newPrice = Console.ReadLine();
+
+			applicationService.UpdateProduct(ID, newName, newPrice, out string result);
+			Console.WriteLine(result);
 		}
 	}
 }

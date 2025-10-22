@@ -39,6 +39,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 		#region ACCESS SERVICES
 		private CreateProduct createProductService;
 		private ReadProduct readProductService;
+		private UpdateProduct updateProductService;
 		#endregion
 
 		public void InitializePriviliges(AccessLevel level)
@@ -56,7 +57,7 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 					// admin isn't logged-in to go shopping - they're trying to do executive functions
 					// therefore we prevent risks by not giving them permissions to create orders, because that's not the use of the app on the admin's side
 					// if they want to test functionalities, they should do so from a mock-up default user
-					AllowedActions = Actions.ReadProduct | Actions.CreateProduct | Actions.DeleteProduct |
+					AllowedActions = Actions.ReadProduct | Actions.CreateProduct | Actions.UpdateProduct | Actions.DeleteProduct |
 						Actions.ReadOrder | Actions.DeleteOrder;
 					break;
 				default:
@@ -71,6 +72,8 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 		{
 			// PRODUCT
 			// IRepository has to be a param and not hard coded
+			// here, like in consoleUI, we could use a factory/strategy to create these services based on an interface
+			// this way, we can have them change depending on context like more specific user actions, or by passing in test objects
 			if((AllowedActions & Actions.CreateProduct) == Actions.CreateProduct)
 			{
 				createProductService = new CreateProduct(Database.Instance);
@@ -79,6 +82,11 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 			if((AllowedActions & Actions.ReadProduct) == Actions.ReadProduct)
 			{
 				readProductService = new ReadProduct(Database.Instance);
+			}
+
+			if((AllowedActions & Actions.UpdateProduct) == Actions.UpdateProduct) 
+			{
+				updateProductService = new UpdateProduct(Database.Instance);
 			}
 		}
 		#endregion
@@ -114,6 +122,20 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 
 		public bool ReadProduct(string id, out Product product, out string message)
 		{
+			if((AllowedActions & Actions.ReadProduct) != Actions.ReadProduct)
+			{
+				message = "ERROR: No permissions to view products";
+				product = null;
+				return false;
+			}
+
+			if(readProductService == null)
+			{
+				message = "ERROR: service not initialized";
+				product = null;
+				return false;
+			}
+
 			return readProductService.GetProduct(id, out product, out message);
 		}
 
@@ -126,6 +148,35 @@ namespace SoftwareArchitecture.Esercizi_22_10.OrderingSystem.Application
 			}
 			return toReturn;
 		}
+
+		public bool UpdateProduct(string productId, string newName, float newPrice, out string message) 
+		{
+			if((AllowedActions & Actions.UpdateProduct) != Actions.UpdateProduct)
+			{
+				message = "ERROR: no permission to update. DB will not be updated";
+				return false;
+			}
+
+			if(updateProductService == null)
+			{
+				message = "ERROR: service not initialized";
+				return false;
+			}
+
+			return updateProductService.Update(productId, newName, newPrice, out message);
+		}
+
+		public bool UpdateProduct(string productId, string newName, string newPrice, out string message)
+		{
+			if (!float.TryParse(newPrice, out float sanitizedFloat))
+			{
+				message = "ERROR: price is in invalid format";
+				return false;
+			}
+
+			return UpdateProduct(productId, newName, sanitizedFloat, out message);
+		}
+
 		#endregion
 	}
 }
