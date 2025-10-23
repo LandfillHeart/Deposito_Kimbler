@@ -2,6 +2,7 @@
 {
 	public static event Action<string> LogOperation;
 	public delegate int Operation(int x, int y);
+	public delegate void Logger(string msg);
 
 	public static int Sum(int x, int y)
 	{
@@ -33,16 +34,21 @@
 		LogOperation += ConsoleLog;
 		LogOperation += FileLog;
 
+		Logger logDelegate = ConsoleLog;
+		logDelegate += FileLog;
+
+
 		Console.WriteLine("Inserisci il tuo nome");
 		string user = Console.ReadLine();
 
 		Console.WriteLine("Quale tipo di operazione vuoi effettuare? +/*");
 		string op = Console.ReadLine();
 
-		Operation sumDelegate = op.Contains("*") ? Mult : Sum;
+		Operation opDelegate = op.Contains("*") ? Mult : Sum;
 
 		int x = 5;
 		int y = 10;
-		LogOperation?.Invoke($"{user} ha eseguito l'operazione {x} {op} {y} = {ExecuteOperation(sumDelegate, x, y)}");
+		LogOperation?.Invoke($"{user} ha eseguito l'operazione {x} {op} {y} = {ExecuteOperation(opDelegate, x, y)}");
+		logDelegate($"Delegate dice: {user} ha eseguito l'operazione {x} {op} {y} = {ExecuteOperation(opDelegate, x, y)}");
 	}
 }
