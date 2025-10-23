@@ -48,7 +48,7 @@
 
 		int x = 5;
 		int y = 10;
-		LogOperation?.Invoke($"{user} ha eseguito l'operazione {x} {op} {y} = {ExecuteOperation(opDelegate, x, y)}");
+		LogOperation?.Invoke($"{user} ha eseguito l'operazione {x} {op} {y} = {opDelegate(x, y)}");
 		logDelegate($"Delegate dice: {user} ha eseguito l'operazione {x} {op} {y} = {ExecuteOperation(opDelegate, x, y)}");
 	}
 }
