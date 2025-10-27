@@ -36,4 +36,9 @@ DROP TABLE MyShippingCompany.Orders;
 -- INNER JOIN mostra tutti clienti che hanno effettuato un ordine --
 SELECT Clients.username, Orders.order_date, Orders.cost
 FROM Orders
-INNER JOIN Clients ON Clients.id = Orders.fk_client_id
+INNER JOIN Clients ON Clients.id = Orders.fk_client_id;
+
+-- LEFT JOIN visualizza tutti i clienti ed eventuali ordini
+SELECT Clients.username, Orders.order_date, Orders.cost
+FROM Clients
+LEFT JOIN Orders ON Clients.id = Orders.fk_client_id;
