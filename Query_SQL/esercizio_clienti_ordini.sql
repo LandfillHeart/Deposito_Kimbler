@@ -42,3 +42,8 @@ INNER JOIN Clients ON Clients.id = Orders.fk_client_id;
 SELECT Clients.username, Orders.order_date, Orders.cost
 FROM Clients
 LEFT JOIN Orders ON Clients.id = Orders.fk_client_id;
+
+-- RIGHT JOIN visualizza tutti gli ordini ed eventuale cliente
+SELECT Clients.username, Orders.order_date, Orders.cost
+FROM Clients
+RIGHT JOIN Orders ON Clients.id = Orders.fk_client_id;
