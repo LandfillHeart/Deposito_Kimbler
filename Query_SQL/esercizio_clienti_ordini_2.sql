@@ -5,3 +5,8 @@ SELECT Clients.username, COUNT(Orders.id) AS Number_Of_Orders, SUM(Orders.cost) 
 FROM Orders
 INNER JOIN Clients ON Clients.id = Orders.fk_client_id
 GROUP BY Clients.id;
+
+-- Clienti Inattivi
+SELECT Clients.username, Clients.city
+FROM Clients
+WHERE Clients.id NOT IN (SELECT Orders.fk_client_id FROM Orders);
