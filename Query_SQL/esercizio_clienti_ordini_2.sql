@@ -10,3 +10,11 @@ GROUP BY Clients.id;
 SELECT Clients.username, Clients.city
 FROM Clients
 WHERE Clients.id NOT IN (SELECT Orders.fk_client_id FROM Orders);
+
+-- Ordini Orfani, senza cliente --
+INSERT INTO MyShippingCompany.Orders (order_date, cost) VALUES
+	("2025-10-27", 19.99),
+	("1980-01-01", 0.01);
+    
+SELECT * FROM Orders
+WHERE Orders.fk_client_id IS null;
