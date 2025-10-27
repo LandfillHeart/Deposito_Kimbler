@@ -9,7 +9,9 @@ GROUP BY Clients.id;
 -- Clienti Inattivi
 SELECT Clients.username, Clients.city
 FROM Clients
-WHERE Clients.id NOT IN (SELECT Orders.fk_client_id FROM Orders);
+LEFT JOIN Orders ON Orders.fk_client_id = Clients.id
+WHERE Orders.fk_client_id IS NULL;
+-- WHERE Clients.id NOT IN (SELECT Orders.fk_client_id FROM Orders); --
 
 -- Ordini Orfani, senza cliente --
 INSERT INTO MyShippingCompany.Orders (order_date, cost) VALUES
@@ -18,3 +20,4 @@ INSERT INTO MyShippingCompany.Orders (order_date, cost) VALUES
     
 SELECT * FROM Orders
 WHERE Orders.fk_client_id IS null;
+
